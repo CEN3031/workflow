@@ -1,2 +1,13 @@
 /* Styles go here */
 
+#checkButton{
+	margin: 2px;
+}
+
+#trashButton{
+	margin: 2px;
+}
+
+.checkedCheck{
+	color: green;
+}

@@ -13,6 +13,15 @@ myApp.controller('MainCtrl', function ($scope){
       $scope.newItem = "";
     }
   }
+
+  $scope.checkEnter = function(keyEvent){
+    if(keyEvent.which === 13){
+      if ($scope.newItem !== ""){
+        $scope.todos.push($scope.newItem);
+        $scope.newItem = "";
+      }
+    }
+  }
     
   $scope.deleteItem = function(item){
     console.log("in delete");
