@@ -1,6 +1,6 @@
 # Pivotal Tracker Details
 
-- Account to join CEN3031:-Group4A
+- Account to join: CEN3031-Group4A
 
 # workflow
 This assignment will help in understanding how to use GitHub to collaborate with your team members. 
