@@ -2,6 +2,8 @@
 <html>
 
   <head>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
@@ -31,14 +33,22 @@
         <li class="list-group-item clearfix" ng-repeat="do in todos">
           
           <span>{{do}}</span>
+
+          <button class="btn btn-success pull-right" type="button" ng-click="completeItem(do)">
+            <span class="glyphicon glyphicon-check" aria-hidden="true">Complete</span>
+          </button>
+
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
-            <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
           </button>
 
         </li>
       </ul>
+
+      <button class="btn btn-danger" type="button" ng-click="deleteCompletedItems(do)">
+        <span>Clear Completed Tasks</span>
+      </button>
     </div>
-    
   </body>
 
 </html>
