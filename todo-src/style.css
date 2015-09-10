@@ -1,2 +1,5 @@
 /* Styles go here */
-
+#DeleteAll {
+    background-color: red;
+    color: white;
+}

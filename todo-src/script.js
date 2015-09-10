@@ -19,6 +19,17 @@ myApp.controller('MainCtrl', function ($scope){
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
   }
+  
+  $scope.deleteAll = function(){
+    var length = $scope.todos.length; //get all the todos in the list
+    if(length !== 0){
+      var a = confirm("Are you really sure you want to do this?");
+      if(a){
+        console.log("deleted All");
+        $scope.todos.splice(0, length); //delete all them from the list
+      }
+    }
+  }
     
   
 });
