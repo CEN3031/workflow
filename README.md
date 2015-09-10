@@ -2,12 +2,12 @@
 
 Assignments are up for discussion, please message Raz if you want to take on a different task.
 
-1.Change the background color of the to-do app		: Salim/Marie
-2.Give the option to assign a priority to a to-do item	: Logan
-3.Add an "edit" button with appropiate functionality	: Salim/Marie
-4.Add a button to mark an item as "complete"		: Juan
-5.Show the total number of items in the to-do list at above the list.	: Yayati
-6.A button to clear all "completed" tasks		: Raz
+1. Change the background color of the to-do app		: Salim/Marie
+2. Give the option to assign a priority to a to-do item	: Logan
+3. Add an "edit" button with appropiate functionality	: Salim/Marie
+4. Add a button to mark an item as "complete"		: Juan
+5. Show the total number of items in the to-do list at above the list.	: Yayati
+6. A button to clear all "completed" tasks		: Raz
 
 Please make a branch for your features and make a Pull Request when complete.
 
