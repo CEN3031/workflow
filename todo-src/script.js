@@ -23,11 +23,12 @@ myApp.controller('MainCtrl', function ($scope){
   $scope.editItem = function(item){
     console.log("in edit");
     var index = $scope.todos.indexOf(item);
-    if (($scope.newItem !== "") && ($scope.newItem !== $scope.todos[index])){
-      $scope.todos[index] = $scope.newItem;
+    if ($scope.newItem == ""){
+      $scope.newItem = $scope.todos[index];
     }
     else{
-      $scope.newItem = $scope.todos[index];
+      $scope.todos[index] = $scope.newItem;
+      $scope.newItem = "";
     }
   }
     
