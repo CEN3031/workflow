@@ -19,6 +19,17 @@ myApp.controller('MainCtrl', function ($scope){
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
   }
+
+  $scope.editItem = function(item){
+    console.log("in edit");
+    var index = $scope.todos.indexOf(item);
+    if (($scope.newItem !== "") && ($scope.newItem !== $scope.todos[index])){
+      $scope.todos[index] = $scope.newItem;
+    }
+    else{
+      $scope.newItem = $scope.todos[index];
+    }
+  }
     
   
 });
