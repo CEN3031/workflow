@@ -11,9 +11,9 @@
 
   <body ng-app="app">
     <h1 class="text-center">My little to do app!</h1>
-    
+
     <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl">
-  
+
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model="newItem">
           <span class="input-group-btn">
@@ -22,23 +22,32 @@
               <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
             </button>
           </span>
+          <select ng-model="priority">
+            <option value='Today'>Today</option>
+            <option value='Tomorrow'>Tomorrow</option>
+            <option value='Future'>Next week or later</option>
+          </select>
         </div><!-- /input-group -->
-        
+
       <h2>stuff i gotta do asap</h2>
-      
+      <p> You have {{todos.length}} things to do!</p>
+
       <ul class="list-group">
+        <!-- Switches between input and span when edit is active.  Edit is false by default -->
         <!-- http://www.w3schools.com/css/css_float.asp -->
         <li class="list-group-item clearfix" ng-repeat="do in todos">
-          
-          <span>{{do}}</span>
+          <span ng-show="!edit">{{do}}</span>
+          <input class= type="text" ng-model="do" ng-show="!!edit">
+
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>
-
+          <button class="btn btn-warning pull-right"  ng-click=" edit=!edit">{{!edit? "Edit" : "Commit Change"}}</button>
+          <button class="btn btn-info pull-right">{{priorities[$index]}}</button>
         </li>
       </ul>
     </div>
-    
+
   </body>
 
 </html>

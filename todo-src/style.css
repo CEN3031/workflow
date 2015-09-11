@@ -1,4 +1,16 @@
 /* Styles go here */
 body {
-  background: green;
+  background: dimgray;
+}
+
+li {
+  width: auto;
+}
+
+.btn-warning {
+  margin-right: 5px;
+}
+
+.btn-info {
+  margin-right: 5px;
 }
