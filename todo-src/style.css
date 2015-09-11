@@ -1,4 +1,23 @@
 /* Styles go here */
 body {
-  background: green;
+  background: url(../todo-src/bg.jpg);
+  background-size: cover;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color:white;
+    margin: 5 5 35px;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.intro{
+	background: black;
 }
