@@ -5,12 +5,29 @@ var myApp = angular.module('app', []);
 myApp.controller('MainCtrl', function ($scope){
   $scope.todos = ["Learn Angular", "Learn node"];
   $scope.newItem = "";
+  $scope.priorityList = ["", ""];
+  $scope.priority = "";
   
+  $scope.setPriority = function(item){
+    console.log("in priority");
+    if ($scope.priority == "") {
+      $scope.priority = item;
+    }
+  }
+
   $scope.addItem = function(){
     console.log("in add");
     if ($scope.newItem !== ""){
-      $scope.todos.push($scope.newItem);
+      if ($scope.priority == "now") {
+        $scope.todos.unshift($scope.newItem);
+        $scope.priorityList.unshift($scope.priority);
+      }
+      else {
+        $scope.todos.push($scope.newItem);
+        $scope.priorityList.push($scope.priority);
+      }
       $scope.newItem = "";
+      $scope.priority = "";
     }
   }
     
