@@ -3,6 +3,10 @@ body {
   background: dimgray;
 }
 
+li {
+  width: auto;
+}
+
 .btn-warning {
   margin-right: 5px;
 }
