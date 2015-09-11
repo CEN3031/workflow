@@ -8,7 +8,7 @@ myApp.controller('MainCtrl', function ($scope){
 
   $scope.addItem = function(){
     console.log("in add");
-    if ($scope.newItem !== ""){
+    if ($scope.newItem !== "" && $scope.todos.indexOf($scope.newItem) === -1){
       $scope.todos.push($scope.newItem);
       $scope.newItem = "";
     }
