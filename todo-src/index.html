@@ -28,13 +28,18 @@
       <p> You have {{todos.length}} things to do!</p>
 
       <ul class="list-group">
+        <!-- Switches between input and span when edit is active.  Edit is false by default -->
         <!-- http://www.w3schools.com/css/css_float.asp -->
         <li class="list-group-item clearfix" ng-repeat="do in todos">
 
-          <span>{{do}}</span>
+          <span ng-show="!edit">{{do}}</span>
+          <input type="text" ng-model="do" ng-show="!!edit">
+
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>
+          <button class="btn btn-warning pull-right"  ng-click=" edit = true" ng-show="!edit">Edit</button>
+          <button class="btn btn-warning pull-right"  ng-click="edit = false" ng-show="!!edit">Commit Change</button>
 
         </li>
       </ul>
