@@ -1,4 +1,8 @@
 /* Styles go here */
 body {
-  background: green;
+  background: blue;
+}
+
+.input-group .form-control {
+		width: 50%;
 }
