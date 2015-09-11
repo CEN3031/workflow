@@ -17,6 +17,17 @@
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model="newItem">
           <span class="input-group-btn">
+
+            <button class="btn btn-warning" type="button" ng-click="setPriority('soon')">
+              Soon
+              <span class="glyphicon glyphicon-alert" aria-hidden="true"></span>
+            </button>
+
+            <button class="btn btn-danger" type="button" ng-click="setPriority('now')">
+              Now!
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            </button>
+
             <button class="btn btn-default" type="button" ng-click="addItem()">
               Add
               <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
@@ -28,12 +39,24 @@
       
       <ul class="list-group">
         <!-- http://www.w3schools.com/css/css_float.asp -->
-        <li class="list-group-item clearfix" ng-repeat="do in todos">
-          
+        <li class="list-group-item clearfix" ng-repeat="do in todos" ng-model="">
+
+        <!-- Priority Stuff -->
+          <div class="btn btn-warning" ng-show="priorityList[$index] == 'soon'">
+            <span class="glyphicon glyphicon-alert " aria-hidden="true"></span>
+          </div>
+
+          <div class="btn btn-danger" ng-show="priorityList[$index] == 'now'">
+            <span class="glyphicon glyphicon-exclamation-sign " aria-hidden="true"></span>
+          </div>
+        <!-- End Priority Stuff -->
+
           <span>{{do}}</span>
+
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>
+        </span>
 
         </li>
       </ul>
