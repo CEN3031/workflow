@@ -23,6 +23,8 @@
             </button>
           </span>
         </div><!-- /input-group -->
+
+      <span class="label label-danger">{{warningText}}</span> <!-- This is a warning text that only displays if the user has done something wrong, i.e., tried to edit an item so that it had an identical name as something else -->
         
       <h2>stuff i gotta do asap</h2>
       
@@ -34,6 +36,26 @@
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>
+
+          <button type="button" class="btn btn-info pull-right" ng-click="showEditor(do)" ng-show="!todosEditor[$index]">Edit 
+            <span class="glyphicon glyphicon-pencil"></span>
+          </button> <!-- This is our edit button. It links to script.js and has a fun little pencil icon. When a user clicks it, it makes visible to the user the corresponding form. -->
+
+          <form class="input-group" ng-submit="editItem(do, editedItem)" ng-show="todosEditor[$index]"> <!--This form is used to edit something. Because of the "ng-show" attribute, it is only visible to the user once they have clicked the edit button -->
+            <input type="text" class="form-control" placeholder="Type a New Name" aria-describedby="basic-addon2" ng-model="editedItem"> <!-- I place everything inside an "input" tag so that the user could press enter to submit the information -->
+             <span class="input-group-btn">
+                <button class="btn btn-default" type="button" ng-click="editItem(do, editedItem)">Edit <span class="glyphicon glyphicon-ok"></span>
+                </button>
+             </span> <!-- This span completes the actual edit operation when the user clicks on the button -->
+
+             <span class="input-group-btn">
+                <button class="btn btn-danger" type="button" ng-click="cancelEdit(do)">Cancel <span class="glyphicon glyphicon-remove"></span>
+                </button>
+             </span>  <!--This span cancels the edit operation. This hides the edit form from the user and does not affect the current todo-list -->
+
+            </input>
+
+          </form>
 
         </li>
       </ul>
