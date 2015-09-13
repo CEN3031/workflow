@@ -5,12 +5,14 @@ var myApp = angular.module('app', []);
 myApp.controller('MainCtrl', function($scope) {
 	$scope.todos = ["Change background", "Priority", "Edit button", "Mark Complete", "Show number of the items", "Clear complete items", "Add enter"];
 	$scope.newItem = "";
+	$scope.itemCount = $scope.todos.length;
 
 	$scope.addItem = function(){
 		console.log("in add");
 		if ($scope.newItem !== ""){
 		  $scope.todos.push($scope.newItem);
 		  $scope.newItem = "";
+		  $scope.itemCount += 1;
 		}
 	}
 
@@ -18,6 +20,7 @@ myApp.controller('MainCtrl', function($scope) {
 		console.log("in delete");
 		var index = $scope.todos.indexOf(item);
 		$scope.todos.splice(index, 1);
+		$scope.itemCount -= 1;
 	}
 
 	$scope.editItem = function (item) {
