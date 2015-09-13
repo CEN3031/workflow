@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
@@ -12,7 +13,6 @@
 <body ng-app="app">
   
   <h1 class="text-center">My little todo app!</h1>
-
 
   <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl">
     
@@ -46,6 +46,18 @@
           <button class="btn btn-danger" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
           </button>
+        </div>
+
+        <!-- Priority button -->
+        <div class="btn-group pull-right">
+          <button type="button" class="btn btn-default dropdown-toggle" ng-class="changeClass($index)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{priorityOptions[priorityList[$index]]}} <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li ng-repeat="ops in priorityOptions" ng-click="updatePriority($parent.$index,$index)">
+              <a href="">{{ops}}</a>
+            </li>
+          </ul>
         </div>
         
         <!-- Editor -->
