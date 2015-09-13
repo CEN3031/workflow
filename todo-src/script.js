@@ -5,7 +5,6 @@ var myApp = angular.module('app', []);
 myApp.controller('MainCtrl', function ($scope){
   $scope.todos = ["Learn Angular", "Learn node"];
   $scope.newItem = "";
-  $scope.total = 2;
   
   $scope.addItem = function(){
     console.log("in add");
@@ -13,7 +12,7 @@ myApp.controller('MainCtrl', function ($scope){
       $scope.todos.push($scope.newItem);
       $scope.newItem = "";
 
-      $scope.total ++;
+
     }
   }
     
@@ -21,7 +20,6 @@ myApp.controller('MainCtrl', function ($scope){
     console.log("in delete");
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
-    $scope.total --;
   }
     
   
