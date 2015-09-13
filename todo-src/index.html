@@ -23,9 +23,12 @@
             </button>
           </span>
         </div><!-- /input-group -->
-        
       <h2>stuff i gotta do asap</h2>
-      
+      <!-- button with total items inside -->
+      <button class="btn btn-default" type="button" style="background-color: rgba(255,255,255,.5);">
+       Total items: {{total}}
+      </button>
+
       <ul class="list-group">
         <!-- http://www.w3schools.com/css/css_float.asp -->
         <li class="list-group-item clearfix" ng-repeat="do in todos">
@@ -37,6 +40,7 @@
 
         </li>
       </ul>
+
     </div>
     
   </body>
