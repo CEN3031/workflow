@@ -13,6 +13,7 @@
   
   <h1 class="text-center">My little todo app!</h1>
 
+
   <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl">
     
     <!-- Todo Form -->
@@ -26,7 +27,10 @@
       </span>
     </div>
 
-    <h2 class="text-center">Uncompleted Tasks</h2>
+    <!-- Header above todo list: {{header}} tracks the number of tasks in the list -->
+    <h2 class="text-center"> Uncompleted Tasks: <strong>{{header}}</strong> </h2>
+    
+
 
     <ul class="list-group">
       <li class="list-group-item clearfix" ng-repeat="do in todos">
