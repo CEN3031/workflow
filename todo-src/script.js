@@ -9,25 +9,11 @@ myApp.controller('MainCtrl', function ($scope){
   $scope.priority = "";
   $scope.total = 2;
   
-<<<<<<< HEAD
-=======
-  $scope.keyPress = function($event) {
-    var key = $event.keyCode || $event.which;
-    if (key == 13) {
-      $scope.addItem();
-    }
-  }
-
->>>>>>> xie_enterkey
   $scope.setPriority = function(item){
     console.log("in priority");
     if ($scope.priority == "") {
       $scope.priority = item;
     }
-<<<<<<< HEAD
-=======
-    $scope.addItem();
->>>>>>> xie_enterkey
   }
 
   $scope.addItem = function(){
@@ -54,13 +40,9 @@ myApp.controller('MainCtrl', function ($scope){
     $scope.todos.splice(index, 1);
     $scope.priorityList.splice(index, 1);
     $scope.total --;
-<<<<<<< HEAD
 
   }
     
-=======
-  } 
->>>>>>> xie_enterkey
   
 });
 
