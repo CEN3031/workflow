@@ -15,10 +15,14 @@
     <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl">
   
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model="newItem">
+          <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model="newItem" ng-keypress="keyPress($event)">
           <span class="input-group-btn">
 
+<<<<<<< HEAD
              <!-- Priority Input -->
+=======
+            <!-- Priority Input -->
+>>>>>>> xie_enterkey
             <button class="btn btn-warning" type="button" ng-click="setPriority('soon')">
               Soon
               <span class="glyphicon glyphicon-alert" aria-hidden="true"></span>
@@ -36,6 +40,10 @@
             </button>
           </span>
         </div><!-- /input-group -->
+<<<<<<< HEAD
+=======
+
+>>>>>>> xie_enterkey
       <h2>stuff i gotta do asap</h2>
       <!-- button with total items inside -->
         <button class="btn btn-default" type="button" style="background-color: rgba(255,255,255,.5);">
