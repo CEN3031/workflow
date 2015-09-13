@@ -7,6 +7,7 @@ myApp.controller('MainCtrl', function ($scope){
   $scope.newItem = "";
   $scope.priorityList = ["", ""];
   $scope.priority = "";
+  $scope.total = 2;
   
   $scope.setPriority = function(item){
     console.log("in priority");
@@ -29,6 +30,7 @@ myApp.controller('MainCtrl', function ($scope){
       }
       $scope.newItem = "";
       $scope.priority = "";
+      $scope.total ++;
     }
   }
     
@@ -37,6 +39,7 @@ myApp.controller('MainCtrl', function ($scope){
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
     $scope.priorityList.splice(index, 1);
+    $scope.total --;
 
   }
     
