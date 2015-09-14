@@ -5,8 +5,9 @@ var myApp = angular.module('app', []);
 myApp.controller('MainCtrl', function ($scope){
   $scope.todos = ["Learn Angular", "Learn node"];
   $scope.newItem = "";
-  
-  $scope.addItem = function(){ //Does not use this function because change of button
+
+  $scope.addItem = function(){
+
     console.log("in add");
     if ($scope.newItem !== ""){
       $scope.todos.push($scope.newItem);
@@ -44,6 +45,10 @@ myApp.controller('MainCtrl', function ($scope){
     $scope.todos.splice(index, 1);
   }
 
+  $scope.get_len = function() {
+    return $scope.todos.length;
+  }
+    
 });
 
 /*************************
