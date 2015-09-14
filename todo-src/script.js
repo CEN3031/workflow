@@ -4,6 +4,7 @@ var myApp = angular.module('app', []);
 
 myApp.controller('MainCtrl', function ($scope){
   $scope.todos = ["Learn Angular", "Learn node"];
+  $scope.dones = [false, false];
   $scope.newItem = "";
 
   $scope.addItem = function(){
@@ -70,15 +71,35 @@ myApp.controller('MainCtrl', function ($scope){
     console.log("in delete");
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
+    $scope.dones.splice(index, 1);
+  }
+
+    
+  $scope.toggleItem = function(item){
+    console.log("in toggle");
+    var index = $scope.todos.indexOf(item);
+    $scope.dones[index] = !$scope.dones[index];
   }
   
+  $scope.getActive = function(item){
+    console.log("in toggle");
+    var index = $scope.todos.indexOf(item);
+    return !$scope.dones[index];
+  }
+
+  
   $scope.deleteAll = function(){
-    var length = $scope.todos.length; //get all the todos in the list
+    var length = $scope.dones.length; //get all the todos in the list
     if(length !== 0){
       var a = confirm("Are you really sure you want to do this?");
       if(a){
         console.log("deleted All");
-        $scope.todos.splice(0, length); //delete all them from the list
+        for(i = 0; i < length; i++){
+          if($scope.dones[i]){
+            $scope.todos.splice(i,0); //delete all them from the list
+            $scope.dones.splice(i,0);
+          }
+        }
       }
     }
   }
@@ -87,6 +108,7 @@ myApp.controller('MainCtrl', function ($scope){
     return $scope.todos.length;
   }
     
+
 });
 
 /*************************
