@@ -4,6 +4,7 @@ var myApp = angular.module('app', []);
 
 myApp.controller('MainCtrl', function ($scope){
   $scope.todos = ["Learn Angular", "Learn node"];
+  $scope.dones = [false, false];
   $scope.newItem = "";
   
   $scope.addItem = function(){
@@ -18,9 +19,20 @@ myApp.controller('MainCtrl', function ($scope){
     console.log("in delete");
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
+    $scope.dones.splice(index, 1);
   }
     
+  $scope.toggleItem = function(item){
+    console.log("in toggle");
+    var index = $scope.todos.indexOf(item);
+    $scope.dones[index] = !$scope.dones[index];
+  }
   
+  $scope.getActive = function(item){
+    console.log("in toggle");
+    var index = $scope.todos.indexOf(item);
+    return !$scope.dones[index];
+  }
 });
 
 /*************************
