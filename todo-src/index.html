@@ -14,15 +14,15 @@
     
     <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl">
   
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model="newItem">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button" ng-click="addItem()">
-              Add
-              <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-            </button>
-          </span>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Item to add to todo list. Choose priority and add by selecting button." ng-model="newItem">
         </div><!-- /input-group -->
+
+        <div class="btn-group btn-group-justified">
+          <a class="btn btn-danger" type="button" ng-click="addItemHigh()">Priority: Now <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>
+          <a class="btn btn-warning" type="button" ng-click="addItemMedium()">Priority: Tomorrow <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>
+          <a class="btn btn-success" type="button" ng-click="addItemLow()">Priority: Someday <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>
+        </div>
         
       <!-- display total number of things to do -->
       <h2>stuff i gotta do asap: <small ng-bind="get_len()"></small><small> total things to do</small></h2>
