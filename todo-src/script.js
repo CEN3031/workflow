@@ -89,20 +89,36 @@ myApp.controller('MainCtrl', function ($scope){
 
   
   $scope.deleteAll = function(){
-    var length = $scope.dones.length; //get all the todos in the list
+    var length = $scope.todos.length; //get all the todos in the list
     if(length !== 0){
       var a = confirm("Are you really sure you want to do this?");
       if(a){
-        console.log("deleted All");
-        for(i = 0; i < length; i++){
-          if($scope.dones[i]){
-            $scope.todos.splice(i,0); //delete all them from the list
-            $scope.dones.splice(i,0);
+          console.log("deleted All");
+          for(i = length - 1; i >= 0; i--){
+            if($scope.dones[i]){
+              $scope.todos.splice(i,1);
+              $scope.dones.splice(i,1);
+            }
           }
         }
       }
     }
-  }
+
+    $scope.show_delete = function() {
+      // var hasAComplete = $scope.todos.indexOf(false);
+      for(x = 0; x < $scope.todos.length; x++){
+        if($scope.dones[x]){
+          return true;
+        }
+      }
+      return false;
+      // if(hasAComplete >= 0){
+      //   return true;
+      // } else {
+      //   return false;
+      // }
+    }
+
 
   $scope.get_len = function() {
     return $scope.todos.length;
