@@ -13,6 +13,7 @@ myApp.controller('MainCtrl', function ($scope){
   $scope.warningText = "";             //Text that displays any warnings
                                        //if the user performs an illegal
                                        //action.        
+  $scope.counter = 2;
   
   $scope.addItem = function(){
     console.log("in add");
@@ -21,11 +22,13 @@ myApp.controller('MainCtrl', function ($scope){
         $scope.todos.push($scope.newItem);
         $scope.newItem = ""; //Clearing Input Box
         $scope.warningText = ""; //Get rid of error message.
+        $scope.counter += 1;
       }
       else{
         $scope.newItem = ""; //Clearing Input Box
         $scope.warningText = "Error! No repeats allowed!";
       }
+
     }
   }
     
@@ -33,6 +36,7 @@ myApp.controller('MainCtrl', function ($scope){
     console.log("in delete");
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
+    $scope.counter -=1;
   }
 
   $scope.showEditor = function(item){   //Shows the appropriate edit
