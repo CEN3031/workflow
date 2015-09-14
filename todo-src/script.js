@@ -2,23 +2,25 @@
 
 var myApp = angular.module('app', []);
 
-myApp.controller('MainCtrl', function ($scope){
-  $scope.todos = ["HIGH PRIORITY: Learn Angular", "Low Priority: Learn node"];
-  $scope.newItem = "";
+myApp.controller('MainCtrl', function($scope) {
+	$scope.todos = ["HIGH PRIORITY: Change background", "HIGH PRIORITY: Priority", "Medium Priority: Edit button", "Medium Priority: Mark Complete", "HIGH PRIORITY: Show number of the items", "HIGH PRIORITY: Clear complete items", "Low Priority: Add enter"];
+	$scope.newItem = "";
+	$scope.itemCount = $scope.todos.length;
 
-  // $scope.addItem = function(){
-  //   console.log("in add");
-  //   if ($scope.newItem !== ""){
-  //     $scope.todos.push($scope.newItem);
-  //     $scope.newItem = "";
-  //   }
-  // }
+	// $scope.addItem = function(){
+	//   console.log("in add");
+	//   if ($scope.newItem !== ""){
+	//     $scope.todos.push($scope.newItem);
+	//     $scope.newItem = "";
+	//   }
+	// }
 
-  $scope.addHigh = function(){
+	$scope.addHigh = function(){
     console.log("in add");
     if ($scope.newItem !== ""){
       $scope.todos.push("HIGH PRIORITY: " + $scope.newItem);
       $scope.newItem = "";
+			$scope.itemCount += 1;
     }
   }
 
@@ -27,6 +29,7 @@ myApp.controller('MainCtrl', function ($scope){
     if ($scope.newItem !== ""){
       $scope.todos.push("Medium Priority: " + $scope.newItem);
       $scope.newItem = "";
+			$scope.itemCount += 1;
     }
   }
 
@@ -35,14 +38,24 @@ myApp.controller('MainCtrl', function ($scope){
     if ($scope.newItem !== ""){
       $scope.todos.push("Low Priority: " + $scope.newItem);
       $scope.newItem = "";
+			$scope.itemCount += 1;
     }
   }
 
-  $scope.deleteItem = function(item){
-    console.log("in delete");
-    var index = $scope.todos.indexOf(item);
-    $scope.todos.splice(index, 1);
-  }
+	$scope.deleteItem = function(item){
+		console.log("in delete");
+		var index = $scope.todos.indexOf(item);
+		$scope.todos.splice(index, 1);
+		$scope.itemCount -= 1;
+	}
+
+	$scope.editItem = function (item) {
+		var check = prompt("Edit");
+		if (check != null) {
+			$scope.todos[item] = check;
+		}
+	}
+
 });
 
 /*************************
