@@ -45,12 +45,18 @@ myApp.controller('MainCtrl', function($scope) {
   }; 
 
   $scope.completeItem = function(item) {//adds a check next to item and adds it to the completed array
-    if(!$scope.isComplete(item))
+    if(!$scope.isComplete(item)){
       totalItems = totalItems - 1;
       $scope.updateString();
       var index = $scope.todos.indexOf(item);
       $scope.completedList[index] = true;
-    
+    }
+    else {
+      totalItems = totalItems + 1;
+      $scope.updateString();
+      var index = $scope.todos.indexOf(item);
+      $scope.completedList[index] = false;
+    }
   };
 
   $scope.isComplete = function(item) {//checks if an item is complete
