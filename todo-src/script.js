@@ -5,7 +5,7 @@ var myApp = angular.module('app', []);
 myApp.controller('MainCtrl', function ($scope){
   $scope.todos = ["Learn Angular", "Learn node"];
   $scope.newItem = "";
-  
+
   $scope.addItem = function(){
     console.log("in add");
     if ($scope.newItem !== ""){
@@ -18,6 +18,10 @@ myApp.controller('MainCtrl', function ($scope){
     console.log("in delete");
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
+  }
+
+  $scope.get_len = function() {
+    return $scope.todos.length;
   }
     
   
