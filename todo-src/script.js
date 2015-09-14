@@ -4,12 +4,65 @@ var myApp = angular.module('app', []);
 
 myApp.controller('MainCtrl', function ($scope){
   $scope.todos = ["Learn Angular", "Learn node"];
+  $scope.dones = [false, false];
   $scope.newItem = "";
-  
+
   $scope.addItem = function(){
+
     console.log("in add");
     if ($scope.newItem !== ""){
-      $scope.todos.push($scope.newItem);
+      if($scope.todos.indexOf($scope.newItem) === -1){
+        $scope.todos.push($scope.newItem);
+      }
+      $scope.newItem = "";
+    }
+  }
+
+  $scope.addItemHigh = function(){
+
+    console.log("in add");
+    if ($scope.newItem !== ""){
+      $scope.todos.push("NOW: " + $scope.newItem);
+      $scope.newItem = "";
+    }
+  }
+
+  $scope.addItemMedium = function(){
+    console.log("in add");
+    if ($scope.newItem !== ""){
+      $scope.todos.push("TOMORROW: " + $scope.newItem);
+      $scope.newItem = "";
+    }
+  }
+
+  $scope.addItemLow = function(){
+    console.log("in add");
+    if ($scope.newItem !== ""){
+      $scope.todos.push("SOMEDAY: " + $scope.newItem);
+      $scope.newItem = "";
+    }
+  }
+
+  $scope.addItemHigh = function(){
+    console.log("in add");
+    if ($scope.newItem !== ""){
+      $scope.todos.push("NOW: " + $scope.newItem);
+      $scope.newItem = "";
+    }
+  }
+
+  $scope.addItemMedium = function(){
+    console.log("in add");
+    if ($scope.newItem !== ""){
+      $scope.todos.push("TOMORROW: " + $scope.newItem);
+      $scope.newItem = "";
+    }
+  }
+
+  $scope.addItemLow = function(){
+    console.log("in add");
+    if ($scope.newItem !== ""){
+      $scope.todos.push("SOMEDAY: " + $scope.newItem);
       $scope.newItem = "";
     }
   }
@@ -18,9 +71,44 @@ myApp.controller('MainCtrl', function ($scope){
     console.log("in delete");
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
+    $scope.dones.splice(index, 1);
+  }
+
+    
+  $scope.toggleItem = function(item){
+    console.log("in toggle");
+    var index = $scope.todos.indexOf(item);
+    $scope.dones[index] = !$scope.dones[index];
+  }
+  
+  $scope.getActive = function(item){
+    console.log("in toggle");
+    var index = $scope.todos.indexOf(item);
+    return !$scope.dones[index];
+  }
+
+  
+  $scope.deleteAll = function(){
+    var length = $scope.dones.length; //get all the todos in the list
+    if(length !== 0){
+      var a = confirm("Are you really sure you want to do this?");
+      if(a){
+        console.log("deleted All");
+        for(i = 0; i < length; i++){
+          if($scope.dones[i]){
+            $scope.todos.splice(i,0); //delete all them from the list
+            $scope.dones.splice(i,0);
+          }
+        }
+      }
+    }
+  }
+
+  $scope.get_len = function() {
+    return $scope.todos.length;
   }
     
-  
+
 });
 
 /*************************

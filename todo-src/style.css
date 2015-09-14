@@ -1,4 +1,5 @@
 /* Styles go here */
-body {
-  background: green;
+#DeleteAll {
+    background-color: red;
+    color: white;
 }
