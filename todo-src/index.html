@@ -10,7 +10,7 @@
   </head>
 
   <body ng-app="app">
-    <h1 class="text-center">My little to do app!</h1>
+    <h1 class="text-center">To Do</h1>
 
     <div id="todo" class="col-xs-8 col-xs-offset-2" ng-controller="MainCtrl">
         <form ng-submit="addLow()">
@@ -22,7 +22,7 @@
                         <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
                     </button>
 
-                    <button class="btn btn-default" type="button" ng-click="addMedium()">
+                    <button class="btn btn-warning" type="button" ng-click="addMedium()">
                         Medium Priority
                         <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
                     </button>
@@ -34,7 +34,7 @@
                 </span>
             </div><!-- /input-group -->
         </form>  
-      <h2>To do stuff<h4> Item Count: {{itemCount}}</h4></h2>
+      <h4>Item Count: {{itemCount}}</h4>
       <ul class="list-group">
         <!-- http://www.w3schools.com/css/css_float.asp -->
         <li class="list-group-item clearfix" ng-repeat="do in todos">       
@@ -49,10 +49,10 @@
 			</button>
         </li>
         <br>
-        <div class = "col-xs-12 col-xs-offset-5">
+        <div id="align">
           <button class="btn btn-danger" type="button" ng-click="deleteChecked()">
           <span id = "special" class="glyphicon glyphicon-trash special " aria-hidden="true"> 
-            <h5 id="align">Delete All Checked Items</h5> 
+            <h5 id="align">Clear Checked Items</h5> 
           </span>
           </button>
         </div>
