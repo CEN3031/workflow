@@ -11,7 +11,6 @@ myApp.controller('MainCtrl', function ($scope){
  $scope.todos = ["Learn Angular", "Learn node"];
     $scope.newItem = "";
     $scope.totalItems = 2;
-    $scope.deletedItems = 0;
     
 
   
@@ -29,7 +28,6 @@ myApp.controller('MainCtrl', function ($scope){
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
     $scope.totalItems-=1;
-    $scope.deletedItems+=1;
   }
     
   
