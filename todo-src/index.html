@@ -34,9 +34,6 @@
                 </span>
             </div><!-- /input-group -->
         </form>  
-        <button class="btn btn-danger pull-right" type="button" ng-click="deleteChecked()">
-      <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
-      </button>
       <h2>To do stuff<h4> Item Count: {{itemCount}}</h4></h2>
       <ul class="list-group">
         <!-- http://www.w3schools.com/css/css_float.asp -->
@@ -51,6 +48,14 @@
 			<span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
 			</button>
         </li>
+        <br>
+        <div class = "col-xs-12 col-xs-offset-5">
+          <button class="btn btn-danger" type="button" ng-click="deleteChecked()">
+          <span id = "special" class="glyphicon glyphicon-trash special " aria-hidden="true"> 
+            <h5 id="align">Delete All Checked Items</h5> 
+          </span>
+          </button>
+        </div>
       </ul>
     </div>
   </body>
