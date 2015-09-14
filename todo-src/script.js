@@ -6,7 +6,15 @@ myApp.controller('MainCtrl', function ($scope){
   $scope.todos = ["Learn Angular", "Learn node"];
   $scope.newItem = "";
   
-  $scope.addItem = function(){
+  // Returns true IFF the keycode is equal to specified keycode
+  $scope.validateKey = function (event, keycode) {
+    var key = event.charCode ? event.charCode : event.keyCode ? event.keyCode : 0
+    return key === keycode;
+  }
+  
+  $scope.addItem = function(event){
+    if (event && !$scope.validateKey(event, 13))
+      return;
     console.log("in add");
     if ($scope.newItem !== ""){
       $scope.todos.push($scope.newItem);
