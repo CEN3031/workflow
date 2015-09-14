@@ -1,4 +1,26 @@
-/* Styles go here */
+html {
+	width: 100%;
+	height: 100%;
+}
+
 body {
-  background: green;
+	color: white;
+	background-color: teal;
+}
+
+.list-group {
+	color: black;
+}
+
+.checkItem {
+	color: green;
+	text-decoration: line-through;
+}
+
+#special {
+	font-size: 30px;
+}
+
+#align {
+	text-align: center;
 }
