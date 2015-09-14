@@ -16,6 +16,7 @@ myApp.controller('MainCtrl', function ($scope){
     if ($scope.priority == "") {
       $scope.priority = item;
     }
+    $scope.addItem();
   }
 
   $scope.addItem = function(){
@@ -44,6 +45,7 @@ myApp.controller('MainCtrl', function ($scope){
     $scope.priorityList.splice(index, 1);
     $scope.total --;
   }
+
   $scope.deleteCompletedItem = function(item){
     console.log("in deleteCompletedItem ");
     var index = $scope.completed.indexOf(item);
@@ -64,8 +66,15 @@ myApp.controller('MainCtrl', function ($scope){
     $scope.priorityList.splice(index, 1);
     $scope.total --;
   }
-    
-  
+
+  //adds item when "enter" is pressed
+  $scope.keyPress = function($event) {
+    var key = $event.keyCode || $event.which;
+    if (key == 13) {
+      $scope.addItem();
+    }
+  }
+
 });
 
 /*************************
