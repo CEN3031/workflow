@@ -19,8 +19,9 @@
           <span class="input-group-btn">
             <button class="btn btn-default" type="button" ng-click="addItem()">
               Add
+			
+			  </button>
               <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-            </button>
           </span>
         </div><!-- /input-group -->
         
@@ -31,10 +32,17 @@
         <li class="list-group-item clearfix" ng-repeat="do in todos">
           
           <span>{{do}}</span>
-          <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
+          <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)" style="margin-left : 10px;">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>
-
+		<div class="pull-right">
+			  <select>
+				<option value="NOW">NOW</option>
+				<option value="Today">Today</option>
+				<option value="Tomorrow">Tomorrow</option>
+				<option value="Another Day">Another Day</option>
+			</select> 
+		</div>
         </li>
       </ul>
     </div>
