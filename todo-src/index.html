@@ -37,11 +37,11 @@
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>
 
-          <button type="button" class="btn btn-info pull-right" ng-click="showEditor(do)" ng-show="!todosEditor[$index]">Edit 
+          <button type="button" class="btn btn-info pull-right" ng-click="showEditor(do)" ng-show="!todosEditor[$index]" style="margin-right: 5px">Edit 
             <span class="glyphicon glyphicon-pencil"></span>
           </button> <!-- This is our edit button. It links to script.js and has a fun little pencil icon. When a user clicks it, it makes visible to the user the corresponding form. -->
-
-          <form class="input-group" ng-submit="editItem(do, editedItem)" ng-show="todosEditor[$index]"> <!--This form is used to edit something. Because of the "ng-show" attribute, it is only visible to the user once they have clicked the edit button -->
+        
+          <form class="input-group" ng-submit="editItem(do, editedItem)" ng-show="todosEditor[$index]" style="margin-top: 20px"> <!--This form is used to edit something. Because of the "ng-show" attribute, it is only visible to the user once they have clicked the edit button -->
             <input type="text" class="form-control" placeholder="Type a New Name" aria-describedby="basic-addon2" ng-model="editedItem"> <!-- I place everything inside an "input" tag so that the user could press enter to submit the information -->
              <span class="input-group-btn">
                 <button class="btn btn-default" type="button" ng-click="editItem(do, editedItem)">Edit <span class="glyphicon glyphicon-ok"></span>
