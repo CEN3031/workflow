@@ -28,12 +28,21 @@
       
       <ul class="list-group">
         <!-- http://www.w3schools.com/css/css_float.asp -->
-        <li class="list-group-item clearfix" ng-repeat="do in todos">
+        <li class="list-group-item clearfix" ng-repeat="do in todos" ng-class="{disabled: do.done}">
           
-          <span>{{do}}</span>
-          <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
-            <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
-          </button>
+           <span>{{do.name}}</span>
+           <span class="pull-right">
+
+            <!-- complete/uncomplete buttons -->
+            <button class="btn btn-success" ng-show="!do.done" ng-click="completeItem($index)">Done <span class="glyphicon glyphicon-ok"></span></button>
+            <button class="btn btn-success" ng-show="do.done" ng-click="uncompleteItem($index)">Undone <span class="glyphicon glyphicon-repeat"></span></button>
+
+           <button class="btn btn-danger" type="button" ng-click="deleteItem($index)">
+             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
+           </button>
+
+           
+          </span>
 
         </li>
       </ul>
