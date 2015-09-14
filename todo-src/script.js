@@ -81,7 +81,13 @@ myApp.controller('MainCtrl', function ($scope){
       
     }
   }
-    
+  
+  $scope.completeItems = [false, false];
+
+  $scope.completeItem = function(item){
+    var index = $scope.todos.indexOf(item);
+    $scope.completeItems[index] = true;
+  }
   
 });
 

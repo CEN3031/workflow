@@ -36,6 +36,10 @@
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>
+          <button type="button" class="btn btn-primary pull-right" style="margin-right:5px" ng-click="completeItem(do)" ng-show="!completeItems[$index]">
+              Completed?
+          </button>
+          <span class="glyphicon glyphicon-check " aria-hidden="true" ng-show="completeItems[$index]"></span>
 
           <button type="button" class="btn btn-info pull-right" ng-click="showEditor(do)" ng-show="!todosEditor[$index]" style="margin-right: 5px">Edit 
             <span class="glyphicon glyphicon-pencil"></span>
