@@ -16,3 +16,11 @@ body {
 	color: green;
 	text-decoration: line-through;
 }
+
+#special {
+	font-size: 30px;
+}
+
+#align {
+	text-align: center;
+}
