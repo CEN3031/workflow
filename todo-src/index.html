@@ -25,17 +25,30 @@
         </div><!-- /input-group -->
         
       <h2>stuff i gotta do asap</h2>
-      
+
       <ul class="list-group">
         <!-- http://www.w3schools.com/css/css_float.asp -->
         <li class="list-group-item clearfix" ng-repeat="do in todos">
-          
-          <span>{{do}}</span>
+
+          <span class="visible">{{do}}</span>
+
+          <!-- When pressing the edit button, this input will show up. -->
+          <div class="input-group" id="hide">
+            <input type="text" class="form-control" placeholder="Edit" ng-model="editing.editedItem">
+          </div>
+
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>
+          
+          <!-- Edit Button -->
+          <button class="btn btn-warning pull-right" type="button" ng-click="editItem(do)">
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+          </button>
 
         </li>
+
+
       </ul>
     </div>
     
