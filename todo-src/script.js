@@ -2,13 +2,11 @@
 
 var myApp = angular.module('app', []);
 
-<<<<<<< HEAD
 myApp.controller('MainCtrl', function ($scope) {
     //This array holds the different priorities necessary for prioritization
-    const priority = ["High", "Medium", "Low"];
+    const priorityarr = ["High", "Medium", "Low"];
 	$scope.todos = [new Task("Change background", 2), new Task("Priority", 2), new Task("Edit button", 2), new Task("Mark Complete", 1), new Task("Show number of the items", 0), new Task("Clear complete items", 2), new Task("Add enter", 1)];
 	$scope.newItem = "";
-	$scope.itemCount = $scope.todos.length;
     //The index of the constant priority array to use
 	$scope.prisel = "";
 
@@ -18,31 +16,15 @@ myApp.controller('MainCtrl', function ($scope) {
 		if ($scope.newItem !== "" || $scope.prisel !== "") {
 		    $scope.todos.push(new Task($scope.newItem, parseInt($scope.prisel)));
 		    $scope.newItem = "";
-		    $scope.itemCount += 1;
 		}
 		else
 		    alert("Pick a name and a priority!");
 	}
-=======
-myApp.controller('MainCtrl', function($scope) {
-	$scope.todos = ["HIGH PRIORITY: Change background", "HIGH PRIORITY: Priority", "Medium Priority: Edit button", "Medium Priority: Mark Complete", "HIGH PRIORITY: Show number of the items", "HIGH PRIORITY: Clear complete items", "Low Priority: Add enter"];
-	$scope.newItem = "";
-	$scope.itemCount = $scope.todos.length;
-	$scope.checks = [false, false, false, false, false, false, false];
->>>>>>> master
 
     //Deletes the items in the task list
 	$scope.deleteItem = function(item){
-<<<<<<< HEAD
 	    console.log("in delete");
 		$scope.todos.splice(item, 1);
-=======
-		console.log("in delete");
-		var index = $scope.todos.indexOf(item);
-		$scope.todos.splice(index, 1);
-		$scope.checks.splice(index, 1);
->>>>>>> master
-		$scope.itemCount -= 1;
 	}
 
     //Allows for editing of the task's name
@@ -51,74 +33,56 @@ myApp.controller('MainCtrl', function($scope) {
 		if (check != null) {
 			$scope.todos[item].name = check;
 		} 
-	} 
-<<<<<<< HEAD
+	}
 	
     //The constructor/definition of task
 	function Task(name, prinum) {
 	    this.name = name;
 	    this.complete = false;
-	    this.priority = priority[prinum];
+	    this.priority = priorityarr[prinum];
 	}
 
     //Toggles the completed status of the task
 	Task.prototype.toggle = function () {
 	    this.complete = !this.complete;
-=======
+	}
 
+    //Calls to check or uncheck an item
 	$scope.checkItem = function(item) {
-		if($scope.checks[item] == true)
-		{
-			$scope.checks[item] = false;
-		}
-		else {
-			$scope.checks[item] = true;
-		}
+	    $scope.todos[item].toggle();
 	}
 
+    //Delete all checked items
 	$scope.deleteChecked = function() {
-		for(i = 0; i < $scope.todos.length; i++)
-		{
-			if($scope.checks[i] == true){
-				$scope.todos.splice(i, 1);
-				$scope.checks.splice(i, 1);
-				$scope.itemCount -= 1;
-				i -= 1;
-			}
-		}
+	    for(i = 0; i < $scope.todos.length; i++)
+	    {
+	        if($scope.todos[i].complete == true){
+	            $scope.todos.splice(i, 1);
+	            i -= 1;
+	        }
+	    }
 	}
-
+    //Add a task that is of high priority
 	$scope.addHigh = function () {
 	    console.log("in add");
-	    if ($scope.newItem !== "") {
-	        $scope.todos.push("HIGH PRIORITY: " + $scope.newItem);
-	        $scope.newItem = "";
-	        $scope.itemCount += 1;
-	        $scope.checks.push(false);
-	    }
+	    $scope.prisel = 0;
+	    $scope.addTask();
 	}
 
+    //Add a task that is of medium priority
 	$scope.addMedium = function () {
 	    console.log("in add");
-	    if ($scope.newItem !== "") {
-	        $scope.todos.push("Medium Priority: " + $scope.newItem);
-	        $scope.newItem = "";
-	        $scope.itemCount += 1;
-	        $scope.checks.push(false);
-	    }
+	    $scope.prisel = 1;
+	    $scope.addTask();
 	}
 
+    //Add a task that is of low priority
 	$scope.addLow = function () {
 	    console.log("in add");
-	    if ($scope.newItem !== "") {
-	        $scope.todos.push("Low Priority: " + $scope.newItem);
-	        $scope.newItem = "";
-	        $scope.itemCount += 1;
-	        $scope.checks.push(false);
-	    }
->>>>>>> master
+	    $scope.prisel = 2;
+	    $scope.addTask();
 	}
-});
+	});
 
 /*************************
  * Homework (not rly):
