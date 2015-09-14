@@ -8,7 +8,7 @@ myApp.controller('MainCtrl', function($scope) {
   $scope.completedList = [false, false];//default completion
   $scope.newItem = ""; //An item to be added to the list
   var totalItems = 2; //Starting number of items in the list
-  $scope.header = "Total Number = " + totalItems; //Header text that will be updated dynamically
+  $scope.header = " " + totalItems; //Header text that will be updated dynamically
   $scope.priorityOptions = ["None","Now!","Today","Later"]; //Options for different priorities
 
   //Function to add an item to the todo list and update the header
@@ -45,12 +45,18 @@ myApp.controller('MainCtrl', function($scope) {
   }; 
 
   $scope.completeItem = function(item) {//adds a check next to item and adds it to the completed array
-    if(!$scope.isComplete(item))
+    if(!$scope.isComplete(item)){
       totalItems = totalItems - 1;
       $scope.updateString();
       var index = $scope.todos.indexOf(item);
       $scope.completedList[index] = true;
-    
+    }
+    else {
+      totalItems = totalItems + 1;
+      $scope.updateString();
+      var index = $scope.todos.indexOf(item);
+      $scope.completedList[index] = false;
+    }
   };
 
   $scope.isComplete = function(item) {//checks if an item is complete
@@ -60,7 +66,7 @@ myApp.controller('MainCtrl', function($scope) {
 
   //Function called to update the {{header}} in the html file
   $scope.updateString = function() {
-    $scope.header = "Total Number = " + totalItems;
+    $scope.header = " " + totalItems;
   };
 
   //Function called to change priority
