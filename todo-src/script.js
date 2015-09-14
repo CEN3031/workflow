@@ -5,6 +5,7 @@ var myApp = angular.module('app', []);
 myApp.controller('MainCtrl', function ($scope){
   $scope.todos = ["Learn Angular", "Learn node"];
   $scope.dones = [false, false];
+  $scope.editor = { text : null, index : null };
   $scope.newItem = "";
 
   $scope.addItem = function(){
@@ -19,7 +20,6 @@ myApp.controller('MainCtrl', function ($scope){
   }
 
   $scope.addItemHigh = function(){
-
     console.log("in add");
     if ($scope.newItem !== ""){
       $scope.todos.push("NOW: " + $scope.newItem);
@@ -43,29 +43,29 @@ myApp.controller('MainCtrl', function ($scope){
     }
   }
 
-  $scope.addItemHigh = function(){
-    console.log("in add");
-    if ($scope.newItem !== ""){
-      $scope.todos.push("NOW: " + $scope.newItem);
-      $scope.newItem = "";
-    }
+  $scope.editItem = function(item){
+    console.log("in edit");
+    var index = $scope.todos.indexOf(item);
+    $scope.editor.index = index;
+    $scope.editor.text = item;
   }
 
-  $scope.addItemMedium = function(){
-    console.log("in add");
-    if ($scope.newItem !== ""){
-      $scope.todos.push("TOMORROW: " + $scope.newItem);
-      $scope.newItem = "";
-    }
+  $scope.saveItem = function(item){
+    console.log("in save");
+    $scope.todos[$scope.editor.index] = $scope.editor.text;
+    $scope.editor.index = null;
   }
 
-  $scope.addItemLow = function(){
-    console.log("in add");
-    if ($scope.newItem !== ""){
-      $scope.todos.push("SOMEDAY: " + $scope.newItem);
-      $scope.newItem = "";
-    }
+  $scope.cancelItem = function(item){
+    console.log("in cancel");
+    $scope.editor.index = null;
   }
+
+  $scope.editingMode = function(item){
+    var index = $scope.todos.indexOf(item);
+    return $scope.editor.index === index;
+  }
+
     
   $scope.deleteItem = function(item){
     console.log("in delete");
