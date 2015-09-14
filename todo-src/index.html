@@ -29,17 +29,21 @@
       
       <ul class="list-group">
         <!-- http://www.w3schools.com/css/css_float.asp -->
-        <li class="list-group-item clearfix" ng-repeat="do in todos">
-          
+        <li class="list-group-item clearfix" ng-repeat="do in todos" ng-style="!getActive(do) && {'text-decoration':'line-through'}">
+
           <span>{{do}}</span>
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>
 
+          <button ng-show="getActive(do)" class="btn btn-success pull-right" type="button" ng-click="toggleItem(do)">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+          </button>
+
         </li>
       </ul>
       <!--Button will only be shown if there are items in list-->
-      <button type="button" id="DeleteAll" class="btn btn-primary btn-lg btn-block ng-hide" ng-show="todos.length" ng-click="deleteAll()"><h2>Delete All Items!</h2></button>
+      <button type="button" id="DeleteAll" class="btn btn-primary btn-lg btn-block ng-hide" ng-show="todos.length" ng-click="deleteAll()"><h2>Delete Completed Items!</h2></button>
     </div>
     
   </body>
