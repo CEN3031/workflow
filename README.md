@@ -8,6 +8,7 @@ Assignments are up for discussion, please message Raz if you want to take on a d
 4. Add a button to mark an item as "complete"		: Juan
 5. Show the total number of items in the to-do list at above the list.	: Yayati
 6. A button to clear all "completed" tasks		: Raz
+7. Add functionality to enter todo item upon hitting the enter key, so you dont need to press the "add" button : Marie
 
 Please make a branch for your features and make a Pull Request when complete.
 
