@@ -19,7 +19,13 @@ myApp.controller('MainCtrl', function ($scope){
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
   }
-    
+  
+  $scope.completeItems = [false, false];
+
+  $scope.completeItem = function(item){
+    var index = $scope.todos.indexOf(item);
+    $scope.completeItems[index] = true;
+  }
   
 });
 
