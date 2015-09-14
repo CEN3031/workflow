@@ -22,6 +22,14 @@ myApp.controller('MainCtrl', function ($scope){
       $scope.totalItems+=1;
     }
   }
+  
+  $scope.enterPress = function(keyEvent) {
+	  
+	  if(keyEvent.which === 13){
+		  $scope.addItem();
+		  
+	  }
+  }
     
   $scope.deleteItem = function(item){
     console.log("in delete");
