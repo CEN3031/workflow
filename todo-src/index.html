@@ -42,7 +42,6 @@
           Total items: {{total}}
         </button>
       <ul class="list-group">
-        <!-- http://www.w3schools.com/css/css_float.asp -->
         <li class="list-group-item clearfix" ng-repeat="do in todos">
 
         <!-- Priority Stuff -->
@@ -57,11 +56,32 @@
 
           <span>{{do}}</span>
 
-          <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
+          <button class="btn btn-danger pull-right btn-space" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>
-        </span>
 
+          <button class="btn btn-success pull-right btn-space" type="button" ng-click="markComplete(do)">
+            <span class="glyphicon glyphicon-check " aria-hidden="true"></span>
+          </button>
+
+        </li>
+      </ul>
+
+      <h2>stuff I did</h2>
+
+      <ul class="list-group">
+        <li class="list-group-item clearfix" ng-repeat="did in completed">
+          <span>{{did}}</span>
+
+          <button class="btn btn-danger pull-right btn-space" type="button" ng-click="deleteCompletedItem(did)">
+            <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
+          </button>
+
+          <!-- UNDO REQUIRES SAVING PRIORITY STATE AND MAYBE POSITION IN TABLE -->
+          <!-- ALTERNATIVELY JUST RE-ADD THE ELEMENT AS IF FOR THE FIRST TIME -->
+          <!-- <button class="btn btn-danger pull-right btn-space" type="button" ng-click="undo(did)">
+            <span class="glyphicon glyphicon-share-alt icon-flipped " aria-hidden="true"></span>
+          </button> -->
         </li>
       </ul>
 
