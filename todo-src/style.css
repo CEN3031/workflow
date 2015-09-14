@@ -1,6 +1,6 @@
 /* Styles go here */
 body {
-  background: yellows;
+  background: yellow;
 }
 
 .btn-space{
@@ -15,5 +15,5 @@ body {
 }
 
 .btn-style {
-	background-color: rgba(255,255,255,.5);
+	background-color: rgba(0,255,255,.5);
 }
