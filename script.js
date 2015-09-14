@@ -19,6 +19,8 @@ myApp.controller('MainCtrl', function ($scope){
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
   }
+
+  var Mike = "null";
     
   
 });
