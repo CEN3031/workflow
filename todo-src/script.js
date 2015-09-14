@@ -29,7 +29,7 @@ myApp.controller('MainCtrl', function ($scope) {
 
     //Allows for editing of the task's name
 	$scope.editItem = function (item) {
-		var check = prompt("Edit");
+		var check = prompt("Edit", $scope.todos[item].name);
 		if (check != null) {
 			$scope.todos[item].name = check;
 		} 
