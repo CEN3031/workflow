@@ -65,6 +65,7 @@
             </li>
           </ul>
         </div>
+        
         <!-- Editor -->
         <form ng-submit="show=false" ng-show="show">
           <div class="input-group">
@@ -74,6 +75,13 @@
         
       </li>
     </ul>
+
+    <!-- Clear button -->
+    <div align="center">
+      <button class="btn btn-clear" type="button" style="background-color: #FF69B4; color:#ffffff; position:center" ng-click="clearTodos(do)">
+       Clear </button>
+    </div>
+
   </div>
 </body>
 </html>

@@ -88,4 +88,12 @@ myApp.controller('MainCtrl', function($scope) {
     }
   };
 
+  //Function called to clear todos list
+  $scope.clearTodos = function() {
+    console.log("in clear");
+    $scope.todos = [];
+    totalItems = 0;
+    $scope.updateString();
+  };
+
 });
