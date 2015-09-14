@@ -1,5 +1,12 @@
 /* Styles go here */
+
+/*1.Change the background color of the to-do app*/
+body{
+	background-color: #e7e7f6;
+}
+
 #DeleteAll {
     background-color: red;
     color: white;
+
 }
