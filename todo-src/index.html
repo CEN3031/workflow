@@ -2,9 +2,9 @@
 <html>
 
   <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <link data-require="bootstrap@*" data-semver="3.3.5" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <script data-require="bootstrap@*" data-semver="3.3.5" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script data-require="angular.js@1.4.3" data-semver="1.4.3" src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
   </head>
@@ -15,7 +15,13 @@
     <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl">
   
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model="newItem">
+          <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model="newItem.task">
+          <p><strong>Priority: </strong></p>
+          <form name="myForm">
+             <input type="radio" ng-model="newItem.pri" value="high">High
+             <input type="radio" ng-model="newItem.pri" value="medium">Medium
+             <input type="radio" ng-model="newItem.pri" value="low">Low
+          </form>
           <span class="input-group-btn">
             <button class="btn btn-default" type="button" ng-click="addItem()">
               Add
@@ -29,8 +35,7 @@
       <ul class="list-group">
         <!-- http://www.w3schools.com/css/css_float.asp -->
         <li class="list-group-item clearfix" ng-repeat="do in todos">
-          
-          <span>{{do}}</span>
+          <span>{{do.task}}</span><br><span><strong>{{do.pri|uppercase}}</strong></span>
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>
