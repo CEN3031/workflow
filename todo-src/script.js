@@ -34,24 +34,27 @@ myApp.controller('MainCtrl', function ($scope){
     //inputs for future reference.
     $scope.currentInput = document.getElementsByClassName("visible");
     $scope.finalInput = document.getElementsByClassName("input-group");
-    
-  $scope.enterKey = function($event){
-    console.log($event.keyCode);
-    if (event.keyCode == 13){
-      $scope.addItem();
-    }
+
     //If there isn't currently anything being edited,
     //make the item invisible and the input visible.
-    else if ($scope.editing.editedItem == ""){
+    if ($scope.editing.editedItem == ""){
       $scope.editing.editedItem = $scope.todos[index];
       $scope.currentInput[index].style['display'] = 'none';
       $scope.finalInput[index+1].style['display'] = 'inline-flex';
     } 
     //Else, apply the edit, make the item visible, and the input invisible.
+    else{  
       $scope.todos[index] = $scope.editing.editedItem;
       $scope.editing.editedItem = "";
       $scope.finalInput[index+1].style['display'] = 'none';
       $scope.currentInput[index].style['display'] = 'inline-flex';
+    }
+  }
+    
+  $scope.enterKey = function($event){
+    console.log($event.keyCode);
+    if (event.keyCode == 13){
+      $scope.addItem();
     }
   }
   
