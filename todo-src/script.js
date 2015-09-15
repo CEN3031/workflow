@@ -57,7 +57,17 @@ myApp.controller('MainCtrl', function ($scope){
     $scope.totalItems-=1;
   }
     
-  
+  $scope.markComp = function(item){
+    console.log("in complete");
+    item.complete = !(item.complete);
+  }
+
+  $scope.getIcon = function(item){
+    if(item.complete){
+      return "glyphicon glyphicon-check";
+    } else return "glyphicon glyphicon-unchecked";
+  }
+
   $scope.removeCompleteItems = function()
   {    
     for (var i = $scope.todos.length-1; i >= 0; i--)
