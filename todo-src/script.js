@@ -32,14 +32,9 @@ myApp.controller('MainCtrl', function ($scope){
      	   t.push({text: i.text, done: i.done});
 	});
 		$scope.todos = t;
-    }
-//I similarly copied the clearCompleted() function in order to add up all the done:false elements.
-  $scope.numToDo = function(){
-    var num = 0;
-    angular.forEach($scope.todos, function (i){if (!i.done){num = num + 1;} });
-      return num;
-  };  
-
+    };
+    
+  
 });
 
 /*************************
