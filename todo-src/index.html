@@ -7,6 +7,8 @@
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
   </head>
 
   <body ng-app="app">
@@ -15,11 +17,15 @@
     <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl">
   
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model="newItem">
+          <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model="newItem" ng-keypress="$event.keyCode == 13 ? addItem() : false">
           <span class="input-group-btn">
             <button class="btn btn-default" type="button" ng-click="addItem()">
               Add
               <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            </button>
+            <button class="btn btn-default" type="button" ng-click="clearCompleted()">
+              Clear Completed Items
+              <span class="glyphicon" aria-hidden="true"></span>
             </button>
           </span>
         </div><!-- /input-group -->
@@ -28,12 +34,25 @@
       
       <ul class="list-group">
         <!-- http://www.w3schools.com/css/css_float.asp -->
+        <button class="btn btn-success" type="button" ng-init="count=2">
+          Total Tasks: {{count}}
+        </button>
         <li class="list-group-item clearfix" ng-repeat="do in todos">
           
-          <span>{{do}}</span>
+          <div ng-hide="editorEnabled" class="inline">
+            <span>{{do}}</span>
+            <a href="#" ng-click="editorEnabled=!editorEnabled">Edit</a>
+          </div>
+          <div ng-show="editorEnabled" class="inline">
+            <input ng-model="do">
+            <a href="#" ng-click="editorEnabled=!editorEnabled">Done</a>
+          </div>    
+          
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
-          </button>
+          </button>  
+
+          <input class="pull-left" type="checkbox" data-toggle="toggle" ng-click="completeItem(do)">
 
         </li>
       </ul>
