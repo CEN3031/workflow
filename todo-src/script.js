@@ -2,7 +2,7 @@
 
 var myApp = angular.module('app', []);
 myApp.controller('MainCtrl', function ($scope){
-  $scope.todos = [{task: "Learn Angular", pri: "high"}, {task: "Learn node", pri: "medium"}];
+  $scope.todos = [{task: "Learn Angular", pri: "high", completed: false}, {task: "Learn node", pri: "medium", completed: false}];
   $scope.newItem = "";
   $scope.newPri = "";
 
@@ -11,7 +11,8 @@ myApp.controller('MainCtrl', function ($scope){
     if ($scope.newItem !== "" && $scope.newPri !== ""){
       data = {
         task: $scope.newItem,
-        pri: $scope.newPri
+        pri: $scope.newPri,
+        completed: false
       }
       $scope.todos.push(data);
       $scope.newItem = "";
@@ -23,4 +24,29 @@ myApp.controller('MainCtrl', function ($scope){
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
   };
+
+  $scope.markAsCompleted = function(item){
+      if(item.completed === true){
+          item.completed = false;
+        }
+        else{
+            item.completed = true;
+
+        }
+
+  };
+  $scope.clearCompleted = function(){
+      for(var i = 0; i < $scope.todos.length; i++){
+          if($scope.todos[i].completed === true){
+            $scope.todos.splice(i, 1);
+            i = 0;
+
+          }
+
+      }
+
+  };
+
+
+
 });
