@@ -36,12 +36,11 @@
         <!-- http://www.w3schools.com/css/css_float.asp -->
         <li class="list-group-item clearfix" ng-repeat="do in todos">
 
-        	      <input type = "checkbox" ng-model="do.done"/>
+          <input type = "checkbox" ng-model="do.done"/>
           <span class="done-{{do.done}}">{{do.text}}</span>
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>
-
           <div class="center">
                <select>
                 <option value="priority">Priority</option>
