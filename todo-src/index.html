@@ -10,7 +10,9 @@
 	</head>
 
   <body ng-app="app">
+	  
     <h1 class="text-center">My little to do app!</h1>
+    
     <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl">
   
 		<form class="input-group" ng-submit="addItem()">
@@ -24,41 +26,36 @@
 				<button class="btn btn-default" type="button" ng-click="addItem()">Add <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
 			</span>
 		</form>
-
-        <!-- /input-group -->
         
-      <h2 class="text-center">stuff i gotta do asap</h2>
+		<h2 class="text-center">stuff i gotta do asap</h2>
       
-      <ul class="list-group">
-        <!-- http://www.w3schools.com/css/css_float.asp -->
-        <li class="list-group-item clearfix" ng-repeat="do in todos track by $index">
+		<ul class="list-group">
+			<li class="list-group-item clearfix" ng-repeat="do in todos track by $index">
+				<span class="visible">{{do}}</span>
+		
+				<!-- When pressing the edit button, this input will show up. -->
+				<div class="input-group" id="hide">
+					<input type="text" class="form-control" placeholder="Edit" ng-model="editing.editedItem">
+				</div>
+		
+				<button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
+					<span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
+				</button>
+		
+				<!-- Edit Button -->
+				<div class='pull-right' style='display: inline; padding-right: .5em' >
+					<button class="btn btn-warning"  type="button" ng-click="editItem(do)">
+						<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+					</button>
+				</div>
+		
+		
+				<div style='display: inline; padding-right: 0.5em' class='pull-right'>
+					<button class="btn btn-info">{{priorities[$index]}}</button>
+				</div> 
+			</li>
+		</ul>
 
-          <span class="visible">{{do}}</span>
-
-          <!-- When pressing the edit button, this input will show up. -->
-          <div class="input-group" id="hide">
-            <input type="text" class="form-control" placeholder="Edit" ng-model="editing.editedItem">
-          </div>
-
-          <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
-            <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
-          </button>
-          
-          <!-- Edit Button -->
-        <div class='pull-right' style='display: inline; padding-right: .5em' >
-          <button class="btn btn-warning"  type="button" ng-click="editItem(do)">
-            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-          </button>
-        </div>
-
-        <div style='display: inline; padding-right: 0.5em' class='pull-right'>
-          <button class="btn btn-info">{{priorities[$index]}}</button>
-        </div> 
-
-        </li>
-
-
-      </ul>
     </div>
     
 	<!-- Scripts (JavaScript) in Footer -->
