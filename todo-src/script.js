@@ -3,21 +3,39 @@
 var myApp = angular.module('app', []);
 
 myApp.controller('MainCtrl', function ($scope){
-  $scope.todos = ["Learn Angular", "Learn node"];
+  $scope.todos = [{name: "Learn Angular", done:false}, {name: "Learn node", done:false}];
   $scope.newItem = "";
   
   $scope.addItem = function(){
     console.log("in add");
     if ($scope.newItem !== ""){
-      $scope.todos.push($scope.newItem);
+      var addItem = {name:$scope.newItem, done:false};
+      $scope.todos.push(addItem);
       $scope.newItem = "";
+
     }
   }
     
-  $scope.deleteItem = function(item){
+  $scope.deleteItem = function(index){
     console.log("in delete");
-    var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
+  }
+
+  $scope.completeItem = function(index){
+    console.log("completed item");
+    $scope.todos[index].done = true;
+  }
+
+  $scope.uncompleteItem = function(index) {
+    console.log("uncompleted item");
+    $scope.todos[index].done = false;
+  }
+//iterates through todos from back to front, deleting
+//all entries that are tagged as finished
+  $scope.deleteCompleted = function() {
+    for (var i = $scope.todos.length - 1; i >= 0; i--) {
+      if($scope.todos[i].done) $scope.deleteItem(i);
+    };
   }
     
   
