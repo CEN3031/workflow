@@ -2,20 +2,23 @@
 <html>
 
   <head>
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <script data-require="angular.js@1.4.3" data-semver="1.4.3" src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <link href="http://vitalets.github.io/angular-xeditable/dist/css/xeditable.css" rel="stylesheet">
+    <script src="http://vitalets.github.io/angular-xeditable/dist/js/xeditable.js"></script>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
   </head>
 
-  <body ng-app="app">
+  <div ng-app="app" ng-controller = "MainCtrl">
     <h1 class="text-center">My little to do app!</h1>
     
     <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl">
   
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model="newItem">
+          <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model = "newItem" ng-keypress = "enterPress($event)">
           <span class="input-group-btn">
             <button class="btn btn-default" type="button" ng-click="addItem()">
               Add
@@ -23,6 +26,14 @@
             </button>
           </span>
         </div><!-- /input-group -->
+      
+      <!-- /input-group -->
+        <div class="input-group">
+          <label class="radio-inline"><input type="radio" name="optradio" ng-model="priority" value="HIGH">Today(HIGH) </label>
+          <label class="radio-inline"><input type="radio" name="optradio" ng-model="priority" value="MEDIUM">Tomorrow(MEDIUM) </label>
+          <label class="radio-inline"><input type="radio" name="optradio" ng-model="priority" value="LOW">Couple of Days(LOW) </label> 
+          <!--<input type="text" class="form-control" placeholder="Priority" ng-model="priority">-->
+        </div>
         
       <h2>stuff i gotta do asap</h2>
       
@@ -30,7 +41,12 @@
         <!-- http://www.w3schools.com/css/css_float.asp -->
         <li class="list-group-item clearfix" ng-repeat="do in todos">
           
-          <span>{{do}}</span>
+          <a href="#" editable-text="todos[$index]">
+            <span>{{do.task}}</span>
+          </a>
+          
+          <div> Priority: {{do.priority}}</div>
+          
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>
@@ -39,6 +55,6 @@
       </ul>
     </div>
     
-  </body>
+  </div>
 
 </html>
