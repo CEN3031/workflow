@@ -30,6 +30,13 @@ myApp.controller('MainCtrl', function ($scope){
     console.log("uncompleted item");
     $scope.todos[index].done = false;
   }
+//iterates through todos from back to front, deleting
+//all entries that are tagged as finished
+  $scope.deleteCompleted = function() {
+    for (var i = $scope.todos.length - 1; i >= 0; i--) {
+      if($scope.todos[i].done) $scope.deleteItem(i);
+    };
+  }
     
   
 });

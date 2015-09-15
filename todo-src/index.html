@@ -25,7 +25,12 @@
         </div><!-- /input-group -->
         
       <h2>stuff i gotta do asap</h2>
-      
+      <!--Delete all completed tasks button-->
+      <div>
+        <button class="btn btn-info" type="button" ng-click="deleteCompleted()">
+          Delete Completed Tasks
+        </button>
+      </div>
       <ul class="list-group">
         <!-- http://www.w3schools.com/css/css_float.asp -->
         <li class="list-group-item clearfix" ng-repeat="do in todos" ng-class="{disabled: do.done}">
