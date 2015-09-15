@@ -8,7 +8,7 @@ myApp.controller('MainCtrl', function ($scope){
 
   $scope.addItem = function(){
     console.log("in add");
-    if ($scope.newItem.task !== "" && $scope.newItem.pri !== ""){
+    if ($scope.newItem !== "" && $scope.newPri !== ""){
       data = {
         task: $scope.newItem,
         pri: $scope.newPri
