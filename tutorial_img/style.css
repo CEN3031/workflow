@@ -7,6 +7,6 @@ ul {
 }
 li {
 	display: block;
-	content: counter(item);
+	content: : counters(item);
 	counter-increment: item;
 }
