@@ -20,6 +20,12 @@ myApp.controller('MainCtrl', function ($scope){
     $scope.todos.splice(index, 1);
   }
     
+  $scope.enterKey = function($event){
+    console.log($event.keyCode);
+    if (event.keyCode == 13){
+      $scope.addItem();
+    }
+  }
   
 });
 
