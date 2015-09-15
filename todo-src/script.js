@@ -4,9 +4,10 @@ var myApp = angular.module('app', []);
 
 myApp.controller('MainCtrl', function ($scope){
 
+	// Default to-do's
 	$scope.todos = ["Learn Angular", "Learn node"];
 	$scope.newItem = "";
-	$scope.priority='';
+	$scope.priority= '';
 	
 	$scope.priorities=["High Priority","Low Priority"];
 	
@@ -15,6 +16,7 @@ myApp.controller('MainCtrl', function ($scope){
 	$scope.editing = {};
 	$scope.editing.editedItem = "";
 	
+	// "Add Item" Function
 	$scope.addItem = function(){
 		console.log("in add");
 		if ($scope.newItem !== ""){
@@ -23,7 +25,7 @@ myApp.controller('MainCtrl', function ($scope){
 		}
 	
 		$scope.priority = $('#select').val();
-		alert( $scope.priority);
+		//alert( $scope.priority);
 		if($scope.priority==="Low"){
 			$scope.priority='Low Priority';
 		}
@@ -31,25 +33,20 @@ myApp.controller('MainCtrl', function ($scope){
 			$scope.priority='Low Priority';
 		}
 		if ($scope.priority !== ""){
-	
-			if($scope.priority ==="Low Priority"){
-				//$scope.priorities.push("<div style='display: inline; padding-right: 0.5em' class='pull-right'><button class='btn btn-info' style='background: black'><span class='glyphicon glyphicon-flag' aria-hidden='true'></span></button></div>");
+			if($scope.priority === 'Low Priority'){
 				$scope.priorities.push("Low Priority");
-				//$scope.priorities.push($scope.priority);
 				$scope.priority = "";
-				// $scope.priorities[index]="High";
-			} else if($scope.priority==='Normal Priority'){
-				//$scope.priorities[index]="Med";
+			} else if($scope.priority === 'Normal Priority'){
 				$scope.priorities.push($scope.priority);
 				$scope.priority = "";
-			} else if ($scope.priority==='High Priority'){
-				//$scope.priorities[index]="Low";
+			} else if ($scope.priority === 'High Priority'){
 				$scope.priorities.push("High Priority");
 				$scope.priority = "";
 			}
 		}
 	}
 	
+	// "Delete Item" Function
 	$scope.deleteItem = function(item){
 		console.log("in delete");
 		var index = $scope.todos.indexOf(item);
@@ -57,7 +54,7 @@ myApp.controller('MainCtrl', function ($scope){
 		$scope.priorities.splice(index, 1);
 	}
 	
-	//This function will edit an item.
+	// This function will edit an item.
 	$scope.editItem = function(item){
 		console.log("in edit");
 		var index = $scope.todos.indexOf(item);
@@ -83,13 +80,6 @@ myApp.controller('MainCtrl', function ($scope){
 		}
 	}
 	
-	$scope.enterKey = function($event){
-		console.log($event.keyCode);
-		if (event.keyCode == 13){
-			$scope.addItem();
-		}
-	}
-
 });
 
 /*************************
