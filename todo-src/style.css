@@ -22,3 +22,7 @@ body {
 .strike{
     text-decoration: line-through;
 }
+
+.nopadding {
+	padding: 0;
+}
