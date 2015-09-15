@@ -18,7 +18,7 @@
     
     <!-- Todo Form -->
     <div class="input-group">
-      <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model="newItem">
+      <input type="text" class="form-control" placeholder="Item to add to todo list" ng-keypress="$event.keyCode == 13 ? addItem() : null" ng-model="newItem">
       <span class="input-group-btn">
         <button class="btn btn-default" type="button" ng-click="addItem()">
           Add
