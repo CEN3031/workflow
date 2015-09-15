@@ -14,6 +14,7 @@
 
     <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl">
 
+        <!-- ADD NEW TODO ITEM -->
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model="newItem">
           <span class="input-group-btn">
@@ -36,10 +37,17 @@
 
       <h2>stuff i gotta do asap</h2>
 
+      <h4> number of items on my list: {{todos.length}} </h4>
+      
+      <!-- TODO ITEM LIST -->
       <ul class="list-group">
         <!-- http://www.w3schools.com/css/css_float.asp -->
         <li id="{{do.pri}}" class="list-group-item clearfix" ng-repeat="do in todos">
-          <span ng-class="{strike: do.completed}">{{do.task}}</span><br><button class="btn btn-default" disabled><span><strong>{{do.pri|uppercase}}</strong></button>
+          <span ng-class="{strike: do.completed}">{{do.task}}</span><br>
+          <button class="btn btn-default" disabled>
+            <strong>{{do.pri|uppercase}}</strong>
+          </button>
+
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>
