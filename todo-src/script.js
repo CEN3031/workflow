@@ -8,6 +8,11 @@ myApp.controller('MainCtrl', function ($scope){
   {text:"Learn node", done:false}
   ];
   $scope.newItem = "";
+
+  $scope.edit = "";
+  $scope.show = 0;
+  $scope.thisone = 0;
+
   
   $scope.addItem = function(){
     console.log("in add");
@@ -33,6 +38,25 @@ myApp.controller('MainCtrl', function ($scope){
 	});
 		$scope.todos = t;
     };
+
+
+ $scope.editItem = function(item){
+    console.log("in edit");
+    $scope.thisone = $scope.todos.indexOf(item);
+    $scope.show = 1;
+     
+  }
+
+   $scope.replaceItem = function(){
+    console.log("in replace");
+    
+     
+      $scope.todos[$scope.thisone] = {text:$scope.edit , done:false};
+      $scope.edit = "";
+    
+     
+    $scope.show = 0;
+  }
     
   
 });
