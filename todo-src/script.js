@@ -1,62 +1,48 @@
-/* global angular */
-/* global task */
-/* global priority */
+// Code goes here
 
+var myApp = angular.module('app', ["xeditable"]);
 
+myApp.run(function(editableOptions) {
+  editableOptions.theme = 'bs3';
+});
 
-// Constructor is separate from its methods
-var Todo = function(task, priority) {
-    this.task = task;
-    this.priority = priority;
-}
-
-// Getters
-Todo.prototype.getTask = function() {
-    return task;
-};
-Todo.prototype.getPriority = function() {
-    return priority;
-};
-
-// Setters
-Todo.prototype.setTask = function(task) {
-    this.task = task;
-};
-
-Todo.prototype.setPriority = function(priority) {
-    this.priority = priority;
-};
-
-// App code starts here!
-var myApp = angular.module('app', []);
 
 myApp.controller('MainCtrl', function ($scope){
-  $scope.todos = [new Todo("Learn Angular","HIGH"), new Todo("Learn node","HIGH")];
-  $scope.task = "";
-  $scope.priority = "";
+ $scope.todos = ["Learn Angular", "Learn node"];
+    $scope.newItem = "";
+    $scope.totalItems = 2;
+    
+
   
   $scope.addItem = function(){
     console.log("in add");
-    if ($scope.task !== "" && $scope.priority !== ""){
-      var newItem = new Todo($scope.task,$scope.priority);
-      $scope.todos.push(newItem);
-      $scope.task = "";
-      $scope.priority = "";
-      
+    if ($scope.newItem !== ""){
+      $scope.todos.push($scope.newItem);
+      $scope.newItem = "";
+      $scope.totalItems+=1;
     }
+  }
+  
+  $scope.enterPress = function(keyEvent) {
+	  
+	  if(keyEvent.which === 13){
+		  $scope.addItem();
+		  
+	  }
   }
     
   $scope.deleteItem = function(item){
     console.log("in delete");
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
+    $scope.totalItems-=1;
   }
     
   
 });
 
 /*************************
- * Homework (not rly):
+ * Homework:
  * - "enter" button functionality instead of clicking button
  * - edit button functionality
  * - button to mark item as "complete"
@@ -66,3 +52,4 @@ myApp.controller('MainCtrl', function ($scope){
  * - add reminder (setInterval)
  * 
  * *********************/
+ 
