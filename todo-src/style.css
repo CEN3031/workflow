@@ -3,3 +3,15 @@
 body {
     background-color: #b0c4de;
 }
+#dropdown{
+	height: 34px;
+}
+#high{
+	background-color: #ffb3b3;
+}
+#medium{
+	background-color: #ffffb3;
+}
+#low{
+	background-color: #b3b3ff;
+}

@@ -15,14 +15,14 @@
     <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl">
   
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model="newItem.task">
-          <p><strong>Priority: </strong></p>
-          <form name="myForm">
-             <input type="radio" ng-model="newItem.pri" value="high">High
-             <input type="radio" ng-model="newItem.pri" value="medium">Medium
-             <input type="radio" ng-model="newItem.pri" value="low">Low
-          </form>
+          <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model="newItem">
           <span class="input-group-btn">
+            <select ng-model="newPri" class="btn btn-default" id="dropdown">
+              <option class="placeholder" selected disabled value="">Prioritiy</option>
+              <option id="high" value="high">High</option>
+              <option id="medium" value="medium">Medium</option>
+              <option id="low" value="low">Low</option>
+            </select>
             <button class="btn btn-default" type="button" ng-click="addItem()">
               Add
               <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
@@ -34,8 +34,8 @@
       
       <ul class="list-group">
         <!-- http://www.w3schools.com/css/css_float.asp -->
-        <li class="list-group-item clearfix" ng-repeat="do in todos">
-          <span>{{do.task}}</span><br><span><strong>{{do.pri|uppercase}}</strong></span>
+        <li id="{{do.pri}}" class="list-group-item clearfix" ng-repeat="do in todos">
+          <span>{{do.task}}</span><br><button class="btn btn-default" disabled><span><strong>{{do.pri|uppercase}}</strong></button>
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>

@@ -2,16 +2,20 @@
 
 var myApp = angular.module('app', []);
 myApp.controller('MainCtrl', function ($scope){
-  $scope.todos = [{task: "Learn Angular", pri: "High"}, {task: "Learn node", pri: "Medium"}];
-  $scope.newItem = {
-        task: "",
-        pri: "",
-    };
+  $scope.todos = [{task: "Learn Angular", pri: "high"}, {task: "Learn node", pri: "medium"}];
+  $scope.newItem = "";
+  $scope.newPri = "";
+
   $scope.addItem = function(){
     console.log("in add");
-    if ($scope.newItem.name !== "" && $scope.newItem.pri !== ""){
-      $scope.todos.push($scope.newItem);
+    if ($scope.newItem.task !== "" && $scope.newItem.pri !== ""){
+      data = {
+        task: $scope.newItem,
+        pri: $scope.newPri
+      }
+      $scope.todos.push(data);
       $scope.newItem = "";
+      $scope.newPri = "";
     }
   };
   $scope.deleteItem = function(item){
