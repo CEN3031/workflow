@@ -2,8 +2,8 @@
 <html>
 
   <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <script  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
@@ -15,7 +15,7 @@
     <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl">
   
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model="newItem">
+          <input type="text" class="form-control" placeholder="Item to add" ng-model="newItem">
           <span class="input-group-btn">
             <button class="btn btn-default" type="button" ng-click="addItem()">
               Add
@@ -24,17 +24,28 @@
           </span>
         </div><!-- /input-group -->
         
-      <h2>stuff i gotta do asap</h2>
+      <h2>stuff i gotta do</h2>
       
       <ul class="list-group">
         <!-- http://www.w3schools.com/css/css_float.asp -->
         <li class="list-group-item clearfix" ng-repeat="do in todos">
-          
           <span>{{do}}</span>
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>
+          
+          <button class="btn btn-danger pull-right" type="button" ng-click="completeItem(do)">
+            <span class="glyphicon glyphicon-check " aria-hidden="true"></span>
+          </button>
 
+        </li>
+      </ul>
+      
+      <h2>stuff I did</h2>
+      <ul class="list-group">
+        <li class="list-group-item clearfix" ng-repeat="did in todid">
+          
+          <span>{{did}}</span>
         </li>
       </ul>
     </div>

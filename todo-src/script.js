@@ -4,6 +4,7 @@ var myApp = angular.module('app', []);
 
 myApp.controller('MainCtrl', function ($scope){
   $scope.todos = ["Learn Angular", "Learn node"];
+  $scope.todid = [""];
   $scope.newItem = "";
   
   $scope.addItem = function(){
@@ -19,18 +20,13 @@ myApp.controller('MainCtrl', function ($scope){
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
   }
-    
   
+  //want to take item and move it to stuff I did
+  $scope.completeItem = function(item){
+    console.log("in complete");
+    var index = $scope.todos.indexOf(item);
+    $scope.todid.push($scope.todos[index]);
+    $scope.todos.splice(index, 1);
+    index++;
+  }
 });
-
-/*************************
- * Homework (not rly):
- * - "enter" button functionality instead of clicking button
- * - edit button functionality
- * - button to mark item as "complete"
- * - have a total number of items at the top
- * - make it prettier
- * - add a due date
- * - add reminder (setInterval)
- * 
- * *********************/

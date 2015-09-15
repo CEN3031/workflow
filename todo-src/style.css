@@ -1,4 +1,19 @@
 /* Styles go here */
 body {
-  background: green;
+  background: yellow;
+}
+
+.btn-space{
+	margin-left: 	5px;
+}
+
+.icon-flipped {
+	transform: scaleX(-1);
+	-moz-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	-ms-transform: scaleX(-1);
+}
+
+.btn-style {
+	background-color: rgba(0,255,255,.5);
 }
