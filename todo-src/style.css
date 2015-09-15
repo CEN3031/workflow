@@ -3,19 +3,19 @@
 body {
     background-color: #C71585;
 }
-#dropdown{
+.selectDropdown{
 	height: 34px;
 }
-#high{
+.selecthigh{
 	background-color: #ffb3b3;
 }
-#medium{
+.selectmedium{
 	background-color: #ffffb3;
 }
-#low{
+.selectlow{
 	background-color: #b3b3ff;
 }
-#ph{
+.selectPh{
 	display: none;
 }
 

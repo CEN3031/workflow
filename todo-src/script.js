@@ -2,7 +2,18 @@
 
 var myApp = angular.module('app', []);
 myApp.controller('MainCtrl', function ($scope){
-  $scope.todos = [{task: "Learn Angular", pri: "high", completed: false}, {task: "Learn node", pri: "medium", completed: false}];
+  $scope.todos = [
+    {
+      task: "Learn Angular",
+      pri: "high",
+      completed: false
+    }, 
+    {
+      task: "Learn node",
+      pri: "medium",
+      completed: false
+    }
+  ];
   $scope.newItem = "";
   $scope.newPri = "";
 
