@@ -39,7 +39,7 @@ myApp.controller('MainCtrl', function ($scope){
       for(var i = 0; i < $scope.todos.length; i++){
           if($scope.todos[i].completed === true){
             $scope.todos.splice(i, 1);
-            i = 0;
+            i = -1;
 
           }
 
