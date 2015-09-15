@@ -2,3 +2,12 @@
 body {
   background: green;
 }
+
+/* id used to make the Edit inputs initially invisible. */
+#hide{
+  display:none;
+}
+
+/* Empty class used for the edit method to know what to edit. */
+.visible{
+}
