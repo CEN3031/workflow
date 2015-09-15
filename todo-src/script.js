@@ -48,7 +48,6 @@ myApp.controller('MainCtrl', function ($scope){
       $scope.finalInput[index+1].style['display'] = 'inline-flex';
     } 
     //Else, apply the edit, make the item visible, and the input invisible.
-    else {
       $scope.todos[index] = $scope.editing.editedItem;
       $scope.editing.editedItem = "";
       $scope.finalInput[index+1].style['display'] = 'none';
