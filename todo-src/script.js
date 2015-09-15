@@ -1,60 +1,60 @@
 // Code goes here
 
-var myApp = angular.module('app', []);
+var myApp = angular.module('app', ["xeditable"]);
+
+myApp.run(function(editableOptions) {
+  editableOptions.theme = 'bs3';
+});
+
 
 myApp.controller('MainCtrl', function ($scope){
+
+ $scope.todos = 
+ [ 
+  {
+    task      : "Learn Angular",
+    priority  : "HIGH",
+    complete  : false
+  },
   
-  $scope.todos =
-  [
-    { 
-      task  : "Learn Angular",
-      complete  : false
-    },
-    
-    {
-      task  : "Learn node",
-      complete  : true
-    },
-    
-    { 
-      task  : "3",
-      complete  : true
-    },
-    
-    { 
-      task  : "4",
-      complete  : false
-    },
-    
-    {
-      task  : "5",
-      complete  : true
-    },
-    
-    {
-      task  : "6",
-      complete  : false
-    }
-  ]
+  {
+    task      : "Learn node",
+    priority  : "HIGH",
+    complete  : false
+  }];
   
-  $scope.newItem = "";
+    $scope.newItem = "";
+    $scope.priority = "";
+    $scope.totalItems = 2;
   
   $scope.addItem = function(){
     console.log("in add");
     if ($scope.newItem !== ""){
       $scope.todos.push(
         {
-          task: $scope.newItem,
+          task  : $scope.newItem,
+          priority  : $scope.priority,
           complete: false
         });
       $scope.newItem = "";
+      $scope.priority = "";
+      $scope.totalItems+=1;
     }
+  }
+  
+  $scope.enterPress = function(keyEvent) {
+	  
+	  if(keyEvent.which === 13){
+		  $scope.addItem();
+		  
+	  }
   }
     
   $scope.deleteItem = function(item){
     console.log("in delete");
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
+    $scope.totalItems-=1;
   }
     
   
@@ -64,7 +64,7 @@ myApp.controller('MainCtrl', function ($scope){
     {
         if($scope.todos[i].complete === true)
         {
-            $scope.todos.splice(i, 1);
+            $scope.deleteItem($scope.todos[i]);
         }
     }
   }
@@ -72,7 +72,7 @@ myApp.controller('MainCtrl', function ($scope){
 });
 
 /*************************
- * Homework (not rly):
+ * Homework:
  * - "enter" button functionality instead of clicking button
  * - edit button functionality
  * - button to mark item as "complete"
@@ -82,3 +82,4 @@ myApp.controller('MainCtrl', function ($scope){
  * - add reminder (setInterval)
  * 
  * *********************/
+ 
