@@ -1,21 +1,17 @@
 /* Styles go here */
+
 body {
-  background: url(../todo-src/bg.jpg);
-  background-size: cover;
-  height: auto;
+	background: url(../todo-src/bg.jpg);
+	background-size: cover;
+	height: auto;
 }
 
-/* id used to make the Edit inputs initially invisible. */
-#hide{
-  display:none;
+/* Used to make the Edit inputs initially invisible. */
+#hide {
+	display:none;
 }
-	
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+
+h1, h2, h3, h4, h5, h6 {
 	color:white;
     margin: 5 5 35px;
     text-transform: uppercase;
