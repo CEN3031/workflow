@@ -41,18 +41,35 @@
         <!-- http://www.w3schools.com/css/css_float.asp -->
         <li class="list-group-item clearfix" ng-repeat="do in todos">
           
-          <a href="#" editable-text="todos[$index]">
-            <span>{{do.task}}</span>
+          <!-- Text -->
+          <a href="#" editable-text="todos[$index].task">
+            <span ng-show="do.complete === false">{{do.task}}</span>
           </a>
+          <strike ng-show="do.complete === true">{{do.task}}</strike>
           
           <div> Priority: {{do.priority}}</div>
           
+          <!-- Buttons -->
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
+          </button>
+          <button class="btn btn-success pull-right" type="button" ng-click="do.complete = true" ng-show="do.complete === false">
+            <span class="glyphicon glyphicon-ok " aria-hidden="true"></span>
+          </button>
+          <button class="btn btn-default pull-right active" type="button" ng-click="do.complete = false" ng-show="do.complete === true">
+            <span class="glyphicon glyphicon-ok " aria-hidden="true"></span>
           </button>
 
         </li>
       </ul>
+      
+      <!-- Button to clear items -->
+      <div class="text-center">  
+        <button class="btn btn-info" type="button" ng-click="removeCompleteItems()">
+          <h4>Delete Completed Items</h4> 
+        </button>
+      </div>
+      
     </div>
     
   </div>

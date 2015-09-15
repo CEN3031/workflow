@@ -8,16 +8,19 @@ myApp.run(function(editableOptions) {
 
 
 myApp.controller('MainCtrl', function ($scope){
+
  $scope.todos = 
  [ 
   {
     task      : "Learn Angular",
-    priority  : "HIGH"
+    priority  : "HIGH",
+    complete  : false
   },
   
   {
     task      : "Learn node",
-    priority  : "HIGH"
+    priority  : "HIGH",
+    complete  : false
   }];
   
     $scope.newItem = "";
@@ -30,7 +33,8 @@ myApp.controller('MainCtrl', function ($scope){
       $scope.todos.push(
         {
           task  : $scope.newItem,
-          priority  : $scope.priority
+          priority  : $scope.priority,
+          complete: false
         });
       $scope.newItem = "";
       $scope.priority = "";
@@ -53,6 +57,17 @@ myApp.controller('MainCtrl', function ($scope){
     $scope.totalItems-=1;
   }
     
+  
+  $scope.removeCompleteItems = function()
+  {    
+    for (var i = $scope.todos.length-1; i >= 0; i--)
+    {
+        if($scope.todos[i].complete === true)
+        {
+            $scope.deleteItem($scope.todos[i]);
+        }
+    }
+  }
   
 });
 
