@@ -67,6 +67,10 @@ myApp.controller('MainCtrl', function ($scope){
     $scope.total --;
   }
 
+  $scope.clearComplete = function(){
+    $scope.completed.length = 0;
+  }
+
   //adds item when "enter" is pressed
   $scope.keyPress = function($event) {
     var key = $event.keyCode || $event.which;

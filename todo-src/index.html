@@ -2,6 +2,9 @@
 <html>
 
   <head>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
@@ -67,8 +70,16 @@
         </li>
       </ul>
 
-      <h2>stuff I did</h2>
+      <!-- LABEL: STUFF I DID WITH CLEAR ALL BUTTON -->
+      <h2>stuff I did
+      <span>
+        <button class="btn btn-danger pull-right" type="button" ng-click="clearComplete()">
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </button>
+      </span>
 
+      </h2>
+      
       <ul class="list-group">
         <li class="list-group-item clearfix" ng-repeat="did in completed">
           <span>{{did}}</span>
