@@ -3,3 +3,22 @@
 body {
     background-color: #C71585;
 }
+#dropdown{
+	height: 34px;
+}
+#high{
+	background-color: #ffb3b3;
+}
+#medium{
+	background-color: #ffffb3;
+}
+#low{
+	background-color: #b3b3ff;
+}
+#ph{
+	display: none;
+}
+
+.strike{
+    text-decoration: line-through;
+}
