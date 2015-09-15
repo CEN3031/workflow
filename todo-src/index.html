@@ -26,6 +26,14 @@
             </button>
           </span>
         </div><!-- /input-group -->
+      
+      <!-- /input-group -->
+        <div class="input-group">
+          <label class="radio-inline"><input type="radio" name="optradio" ng-model="priority" value="HIGH">Today(HIGH) </label>
+          <label class="radio-inline"><input type="radio" name="optradio" ng-model="priority" value="MEDIUM">Tomorrow(MEDIUM) </label>
+          <label class="radio-inline"><input type="radio" name="optradio" ng-model="priority" value="LOW">Couple of Days(LOW) </label> 
+          <!--<input type="text" class="form-control" placeholder="Priority" ng-model="priority">-->
+        </div>
         
       <h2>stuff i gotta do asap</h2>
       
@@ -33,9 +41,11 @@
         <!-- http://www.w3schools.com/css/css_float.asp -->
         <li class="list-group-item clearfix" ng-repeat="do in todos">
           
+          <a href="#" editable-text="todos[$index]">
+            <span>{{do.task}}</span>
+          </a>
           
-          
-          <a href="#" editable-text="todos[$index]"><span>{{ do }}</span></a>
+          <div> Priority: {{do.priority}}</div>
           
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>

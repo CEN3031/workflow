@@ -8,17 +8,32 @@ myApp.run(function(editableOptions) {
 
 
 myApp.controller('MainCtrl', function ($scope){
- $scope.todos = ["Learn Angular", "Learn node"];
+ $scope.todos = 
+ [ 
+  {
+    task      : "Learn Angular",
+    priority  : "HIGH"
+  },
+  
+  {
+    task      : "Learn node",
+    priority  : "HIGH"
+  }];
+  
     $scope.newItem = "";
+    $scope.priority = "";
     $scope.totalItems = 2;
-    
-
   
   $scope.addItem = function(){
     console.log("in add");
     if ($scope.newItem !== ""){
-      $scope.todos.push($scope.newItem);
+      $scope.todos.push(
+        {
+          task  : $scope.newItem,
+          priority  : $scope.priority
+        });
       $scope.newItem = "";
+      $scope.priority = "";
       $scope.totalItems+=1;
     }
   }
