@@ -1,6 +1,23 @@
 /* Styles go here */
+*{
+	border-radius: 0 !important;
+	font-family: 'Roboto', sans-serif;
+}
+
+
+
 body {
-  background: yellow;
+  background: grey;
+}
+
+h2{
+	margin-top: 30px;
+	padding: 0 15px;
+}
+
+/*center li contents in tables*/
+.list-group-item span.ng-binding{
+	line-height:36px;
 }
 
 .btn-space{
@@ -15,5 +32,13 @@ body {
 }
 
 .btn-style {
-	background-color: rgba(0,255,255,.5);
+	background-color: #5D9DE6;
+	border: 0;
+}
+
+#todo{
+	border: 2px solid white;
+	padding: 50px;
+	background: #d0d0d0;
+	margin-top: 50px;
 }
