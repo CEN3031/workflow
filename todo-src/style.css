@@ -1,4 +1,15 @@
 /* Styles go here */
 body {
-  background: green;
+  /* Task 1 */
+  background-color: #CCE0ED; 
+}
+.display-false {
+	display: none;
+}
+.btnMargin {
+	margin-left: 5px;
+}
+.done-true{
+	text-decoration: line-through;
+	color: red;
 }
