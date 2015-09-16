@@ -84,7 +84,6 @@ myApp.controller('MainCtrl', function ($scope){
 		}
 	}
 	
-
   	//Function to clear items that have been designated complete
 	$scope.clearCompleted = function(){
 		console.log("in clearCompleted");
