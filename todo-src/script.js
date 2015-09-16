@@ -24,6 +24,7 @@ myApp.controller('MainCtrl', function ($scope){
 			$scope.newItem = "";
 		}
 	
+  //Setting item priority level
 		$scope.priority = $('#select').val();
 		//alert( $scope.priority);
 		if($scope.priority==="Low"){
@@ -80,6 +81,18 @@ myApp.controller('MainCtrl', function ($scope){
 		}
 	}
 	
+  //Function to clear items that have been designated complete
+  $scope.clearCompleted = function(){
+    console.log("in clearCompleted");
+    for (var index in todos) //go through the array 
+    {
+      if ($scope.todos[index] /**/ ) //***************************************************check "completed" condition************************************************************************
+      {
+        $scope.deleteItem(item); //call delete on that item
+      }
+    }
+  }
+
 });
 
 /*************************
