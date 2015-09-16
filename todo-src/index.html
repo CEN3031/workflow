@@ -1,44 +1,93 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
-  </head>
+	<head>
+		<!-- Stylesheets (CSS) in Header -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="http://silviomoreto.github.io/bootstrap-select/bootstrap-select.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="style.css"/>
+	</head>
 
-  <body ng-app="app">
-    <h1 class="text-center">My little to do app!</h1>
+	<body ng-app="app">
+	  
+    <h1 class="text-center">My Little To-Do App</h1>
     
     <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl">
   
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model="newItem">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button" ng-click="addItem()">
-              Add
-              <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-            </button>
-          </span>
-        </div><!-- /input-group -->
-        
-      <h2>stuff i gotta do asap</h2>
-      
-      <ul class="list-group">
-        <!-- http://www.w3schools.com/css/css_float.asp -->
-        <li class="list-group-item clearfix" ng-repeat="do in todos">
-          
-          <span>{{do}}</span>
-          <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
-            <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
-          </button>
+		<form class="input-group" ng-submit="addItem()">
+			<input type="text" ng-keypress="enterKey($event)" class="form-control" placeholder="Item to add to todo list" ng-model="newItem">
+			<span class="input-group-btn">
+				<select id='select' class="selectpicker" data-width="110px" ng-model="newPriority">
+					<option style='color: yellow' data-icon="glyphicon-flag" value='Low Priority'><span class="glyphicon glyphicon-flag">Low</span></option>
+					<option style='color: blue' data-icon="glyphicon-flag" value='Normal Priority'><span class="glyphicon glyphicon-flag">Normal</span></option>
+					<option style='color: red' data-icon="glyphicon-flag" value='High Priority'><span class="glyphicon glyphicon-flag">High</span></option>
+				</select>
+				<button class="btn btn-default" type="button" ng-click="addItem()">Add <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+			</span>
+		</form>
 
-        </li>
-      </ul>
+      <!-- Clear All Completed Button -->
+      <button class="btn btn-danger pull-right" id="clearCompleted" type="button" ng-click="clearCompleted()">
+        Clear All Completed
+      </button>
+        
+		<h2 class="text-center">Tasks I Must Complete ASAP!</h2>
+      
+		<!-- List of to-do items -->
+		<ul class="list-group">
+			<li class="list-group-item clearfix" ng-repeat="do in todos track by $index">
+				<!-- To-do item title -->
+				<span class="visible">{{do}}</span>
+		
+				<!-- When pressing the edit button, this input will show up. -->
+				<div id="hide" class="input-group edi-inp">
+					<input type="text" class="form-control" placeholder="Edit" ng-model="editing.editedItem">
+				</div>
+		
+				<!-- Delete button -->
+				<button class="btn btn-danger pull-right del-but" type="button" ng-click="deleteItem(do)">
+					<span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
+				</button>
+		
+				<!-- Complete button -->
+				<button class="btn btn-success pull-right spaced-button comp-but" type="button" ng-click="markComplete(do)">
+					<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+				</button>
+		
+				<!-- Edit Button -->
+				<button class="btn btn-warning pull-right spaced-button edi-but"  type="button" ng-click="editItem(do)">
+					<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+				</button>
+		
+				<!-- To-do item priority -->
+				<button class="btn btn-info pull-right spaced-button pri-lis">{{priorities[$index]}}</button>
+				
+				<div class="pull-right comp-noti spaced-button ng-hide">
+					<p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Completed</p>
+				</div>
+			</li>
+		</ul>
+		
+		<h3 class="text-center">Completed Items</h3>
+		
+		<ul class="list-group">
+			<li class="list-group-item clearfix" ng-repeat="items in completedItems track by $index">
+				<span class="visible">{{items}}</p>
+			</li>
+		</ul>
+
     </div>
     
-  </body>
+	<!-- Scripts (JavaScript) in Footer -->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./bootstrap-select.js"></script>
+	<script type="text/javascript" src="https://code.angularjs.org/1.4.3/angular.js"></script>
+	<script type="text/javascript" src="script.js"></script>
+	<script type="text/javascript" src="select.js"></script>
+
+  	</body>
 
 </html>

@@ -1,4 +1,46 @@
-/* Styles go here */
 body {
-  background: green;
+	background: url(../todo-src/bg.jpg);
+	background-size: cover;
+	height: auto;
+}
+
+/* Used to make the Edit inputs initially invisible. */
+#hide {
+	display:none;
+}
+/* used to position the Clear Completed button*/
+#clearCompleted
+{
+  margin-top: 15px; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color:white;
+    margin: 5 5 35px;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+}
+
+/** Formatting for icons in to-do items **/
+
+.spaced-button {
+	margin-right: 5px;
+}
+
+/** Formatting for complete button / complete notification **/
+
+.comp-noti {
+	display: none;
+}
+
+.comp-noti p {
+	font-size: 14px;
+	margin: 7px 0 0 0;
+}
+
+.comp-noti p .glyphicon {
+	color: #2ecc71;
 }
