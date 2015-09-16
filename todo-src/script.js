@@ -1,5 +1,3 @@
-// Code goes here
-
 var myApp = angular.module('app', []);
 
 myApp.controller('MainCtrl', function ($scope){
@@ -81,28 +79,16 @@ myApp.controller('MainCtrl', function ($scope){
 		}
 	}
 	
-  //Function to clear items that have been designated complete
-  $scope.clearCompleted = function(){
-    console.log("in clearCompleted");
-    for (var index in todos) //go through the array 
-    {
-      if ($scope.todos[index] /**/ ) //***************************************************check "completed" condition************************************************************************
-      {
-        $scope.deleteItem(item); //call delete on that item
-      }
-    }
-  }
+  	//Function to clear items that have been designated complete
+	$scope.clearCompleted = function(){
+		console.log("in clearCompleted");
+		for (var index in $scope.todos) //go through the array 
+		{
+			if ( $scope.taskCompletionState[index] == true) //If the item at that index has been completed,
+			{
+				$scope.deleteItem($scope.todos[index]); //Call the delete method to remove that item.
+			}
+		}
+	}
 
 });
-
-/*************************
-* Homework (not rly):
-* - "enter" button functionality instead of clicking button
-* - edit button functionality
-* - button to mark item as "complete"
-* - have a total number of items at the top
-* - make it prettier
-* - add a due date
-* - add reminder (setInterval)
-* 
-* *********************/
