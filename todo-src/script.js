@@ -3,14 +3,38 @@
 var myApp = angular.module('app', []);
 
 myApp.controller('MainCtrl', function ($scope){
-  $scope.todos = ["Learn Angular", "Learn node"];
-  $scope.newItem = "";
+
+  $scope.todos = [{
+    "priority": "now",
+    text: 'Learn Angular',
+    done:false
+  }, {
+    "priority": "now",
+    text: 'Learn node',
+    done:false
+  }];
+  $scope.newItem = {
+    "priority": "",
+    text: '',
+    done:false
+  };
+
+  $scope.editBox = "";
+  $scope.editPriority = "";
   
-  $scope.addItem = function(){
+  $scope.addItem = function(event){
+    var itemCopy = {};
     console.log("in add");
-    if ($scope.newItem !== ""){
-      $scope.todos.push($scope.newItem);
-      $scope.newItem = "";
+    console.log($scope.newItem);
+    if ($scope.newItem.text !== '' && $scope.newItem.priority !== ""){
+      itemCopy.priority = $scope.newItem.priority;    
+      itemCopy.text = $scope.newItem.text;
+      $scope.todos.push(itemCopy);
+      $scope.newItem.text = "";
+      $scope.newItem.priority = "";
+    }
+    else {
+      alert("Please enter a task/priority level!");
     }
   }
     
@@ -20,7 +44,35 @@ myApp.controller('MainCtrl', function ($scope){
     $scope.todos.splice(index, 1);
   }
     
-  
+  $scope.showEdits = function(item){
+    var index = $scope.todos.indexOf(item);
+    $scope.edits = true;
+    $scope.editItem = function(keyEvent){
+      if(keyEvent.which === 13){
+        if($scope.editBox !== "" && $scope.editPriority !== ""){
+          $scope.todos[index].text = $scope.editBox;
+          $scope.todos[index].priority = $scope.editPriority;
+          $scope.edits = false;
+        }
+        else{
+          alert("Please enter a task/priority level!");
+        }
+        
+      }
+    }
+  }
+
+	/* Clear all feature */
+	$scope.clearItems = function (){
+          console.log("Deleted everything");
+	  for(var i = 0, len = $scope.todos.length; i < len; i++){
+        if($scope.todos[i].done === true){
+          $scope.todos.splice(i, 1);
+          console.log($scope.todos[i].done);
+          i = i-1;
+        }
+    }
+   }
 });
 
 /*************************
@@ -32,5 +84,7 @@ myApp.controller('MainCtrl', function ($scope){
  * - make it prettier
  * - add a due date
  * - add reminder (setInterval)
- * 
- * *********************/
+ *
+ * *********************//**
+ * Created by Michelle on 9/14/2015.
+ */
