@@ -96,8 +96,6 @@ myApp.controller('MainCtrl', function ($scope){
 		}
 	}
 
-});
-
 	$scope.markComplete = function(item) {
 		console.log("in complete");
 		$scope.completedItems.push(item);
