@@ -3,16 +3,21 @@ var myApp = angular.module('app', []);
 myApp.controller('MainCtrl', function ($scope){
 
 	// Default to-do's
-	$scope.todos = ["Learn Angular", "Learn node"];
+	$scope.todos = ["Learn AngularJS", "Learn NodeJS", "Walk Dog", "Take Shower"];
 	$scope.newItem = "";
 	$scope.priority= '';
 	
-	$scope.priorities=["High Priority","Low Priority"];
+	// Array of completed to-do items (displayed in "Completed Items" section)
+	$scope.completedItems = ["Brush my Teeth"];
+	
+	$scope.priorities=["Medium Priority","Medium Priority","Medium Priority", "High Priority"];
 	
 	//Creating the variable for editing items.
 	//$scope.editing is necessary to have angular know it needs to update the input.
 	$scope.editing = {};
 	$scope.editing.editedItem = "";
+	
+		
 	
 	// "Add Item" Function
 	$scope.addItem = function(){
@@ -79,6 +84,7 @@ myApp.controller('MainCtrl', function ($scope){
 		}
 	}
 	
+
   	//Function to clear items that have been designated complete
 	$scope.clearCompleted = function(){
 		console.log("in clearCompleted");
@@ -92,3 +98,21 @@ myApp.controller('MainCtrl', function ($scope){
 	}
 
 });
+
+	$scope.markComplete = function(item) {
+		console.log("in complete");
+		$scope.completedItems.push(item);
+		$scope.deleteItem(item);
+	}
+	
+});
+
+/*************************
+* Homework (not rly):
+* - button to mark item as "complete"
+* - have a total number of items at the top
+* - make it prettier
+* - add a due date
+* - add reminder (setInterval)
+* 
+* *********************/
