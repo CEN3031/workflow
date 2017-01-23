@@ -5,6 +5,7 @@ var myApp = angular.module('app', []);
 myApp.controller('MainCtrl', function ($scope){
   $scope.todos = ["Learn Angular", "Learn node"];
   $scope.newItem = "";
+  $scope.editItem = ["", ""];
   
   $scope.addItem = function(){
     console.log("in add");
@@ -20,6 +21,20 @@ myApp.controller('MainCtrl', function ($scope){
     $scope.todos.splice(index, 1);
   }
     
+  $scope.inputEdit = function(index){
+	document.getElementsByName("item")[index].style.display = "none";
+	document.getElementsByName("edit")[index].style.display = "inline";
+  }
+  
+  $scope.confirmEdit = function(index){
+	console.log("in edit");
+	if ($scope.editItem[index] !== ""){
+      $scope.todos[index] = $scope.editItem[index];
+      $scope.editItem[index] = "";
+    }
+	document.getElementsByName("edit")[index].style.display = "none";
+	document.getElementsByName("item")[index].style.display = "initial";
+  }
   
 });
 

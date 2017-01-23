@@ -2,3 +2,12 @@
 body {
   background: green;
 }
+
+[name="edit"] {
+  display: none;
+}
+
+[name="edit-input"] {
+  float: left;
+  width: 90%;
+}
