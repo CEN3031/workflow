@@ -5,6 +5,7 @@ var myApp = angular.module('app', []);
 myApp.controller('MainCtrl', function ($scope){
   $scope.todos = ["Learn Angular", "Learn node"];
   $scope.newItem = "";
+  $scope.newPriority = "";
   
   $scope.addItem = function(){
     console.log("in add");
@@ -19,8 +20,7 @@ myApp.controller('MainCtrl', function ($scope){
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
   }
-    
-  
+
 });
 
 /*************************
