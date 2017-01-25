@@ -1,4 +1,10 @@
 /* Styles go here */
+/* image from internet https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwivsu_Ft93RAhUFTSYKHSUtDpAQjRwIBw&url=http%3A%2F%2Fgraphiclay.blogspot.com%2F2013%2F07%2F15-light-blue-tint-color-background.html&psig=AFQjCNHARmCCbxjdHYHRjBlotUGETPeQ5Q&ust=1485438439130832
+*/
 body {
-  background: blue;
+      background: url("image.jpg") no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+       background-size: cover;
 }
