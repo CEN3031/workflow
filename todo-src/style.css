@@ -9,3 +9,12 @@ body {
        background-size: cover;
       background: blue;
 }
+
+[name="edit"] {
+  display: none;
+}
+
+[name="edit-input"] {
+  float: left;
+  width: 90%;
+}
