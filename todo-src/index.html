@@ -6,39 +6,78 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="animations.css" />
     <script src="script.js"></script>
+    <script src="protractor.js"></script>
   </head>
 
   <body ng-app="app">
     <h1 class="text-center">My little to do app!</h1>
-    
     <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl">
-  
+
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model="newItem">
+
+          <input type="text"
+          class="form-control"
+          placeholder="Item to add to todo list"
+          ng-model="newItem"
+          ui-keypress="{enter: 'addItem()'}"
+          ng-required >
           <span class="input-group-btn">
             <button class="btn btn-default" type="button" ng-click="addItem()">
               Add
               <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
             </button>
           </span>
+
         </div><!-- /input-group -->
-        
-      <h2>stuff i gotta do asap</h2>
-      
+
+      <h2>{{todos.length}} stuff(s) i gotta do asap</h2>
+
       <ul class="list-group">
         <!-- http://www.w3schools.com/css/css_float.asp -->
-        <li class="list-group-item clearfix" ng-repeat="do in todos">
-          
-          <span>{{do}}</span>
-          <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
+        <li class="list-group-item clearfix"  ng-repeat="do in todos track by $index">
+          <!--
+            I added the fields edit and done to the main array
+          -->
+          <span  ng-hide="do.edit">
+          <input type="checkbox"
+          class="form-check-input"
+          style="margin-right: 10px; margin-top: 10px"
+          ng-model="do.done">
+          <label class="form-check-label">{{do.text}}</label></span>
+
+          <span  ng-show="do.edit">
+            <input type="text" ng-model="newItem2"/>
+            <input type="submit" value="update" ng-click="update($index, newItem2)">
+          </span>
+
+          <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem($index)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>
-
+          <button class="btn btn-link pull-right" type="button" ng-click="do.edit = !do.edit">
+            <span class="glyphicon glyphicon-edit " aria-hidden="true"></span>
+          </button>
+            &nbsp;
+          <hr/>
+          <div ng-controller="ExampleController">
+            <select ng-model="selection" ng-options="item for item in items">
+            </select>
+            <div class="animate-switch-container pull-right" ng-switch on="selection">
+              <div class="animate-switch" ng-switch-when="now">top</div>
+              <div class="animate-switch" ng-switch-when="tomorrow">medium</div>
+              <div class="animate-switch" ng-switch-default>low</div>
+            </div>
+          </div>
         </li>
+        <button style:"margin:50px" class="btn btn-default"  type="button" ng-click="remove()">
+
+          <span  class="glyphicon glyphicon-thumbs-up " aria-hidden="true">
+          </span> Clear {{remaining()}} completed tasks</button>
+
       </ul>
     </div>
-    
+
   </body>
 
 </html>
