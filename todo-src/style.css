@@ -4,3 +4,9 @@ body {
   background: grey;
 
 }
+
+
+/* Styling for complete */
+#complete {
+	text-decoration: line-through;
+}
