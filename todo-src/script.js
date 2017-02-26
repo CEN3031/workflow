@@ -19,9 +19,16 @@ myApp.controller('MainCtrl', function ($scope){
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
   }
-    
-  
+
 });
+
+myApp.controller('switchExample', ['ngAnimate'])
+.controller('ExampleController', ['$scope', function ($scope) {
+  $scope.items = ['now', 'tomorrow', 'someday'];
+  $scope.selection = $scope.items[0];
+}]);
+
+
 
 /*************************
  * Homework (not rly):

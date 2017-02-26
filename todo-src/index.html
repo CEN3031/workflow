@@ -6,11 +6,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="animations.css" />
     <script src="script.js"></script>
+    <script src="protractor.js"></script>
   </head>
 
   <body ng-app="app">
-    <h1 class="text-center">My little to do app!</h1>
+    <h1 class="text-center">To Do</h1>
     
     <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl">
   
@@ -34,7 +36,16 @@
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>
-
+          <hr/>
+          <div ng-controller="ExampleController">
+            <select ng-model="selection" ng-options="item for item in items">
+            </select>
+            <div class="animate-switch-container pull-right" ng-switch on="selection">
+              <div class="animate-switch" ng-switch-when="now">top</div>
+              <div class="animate-switch" ng-switch-when="tomorrow">medium</div>
+              <div class="animate-switch" ng-switch-default>low</div>
+            </div>
+          </div>
         </li>
       </ul>
     </div>
