@@ -30,9 +30,13 @@
         <!-- http://www.w3schools.com/css/css_float.asp -->
         <li class="list-group-item clearfix" ng-repeat="do in todos">
           
-          <span>{{do}}</span>
+          <span ng-hide="do.editting">{{do.name}}</span>
+          <input ng-show="do.editting" type="text" ng-model="do.name"></input>
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
+          </button>
+          <button class="btn btn-info pull-right" type="button" ng-click="editItem(do)">
+            <span class="glyphicon glyphicon-edit " aria-hidden="true"></span>
           </button>
 
         </li>

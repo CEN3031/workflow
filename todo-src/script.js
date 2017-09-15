@@ -3,7 +3,9 @@
 var myApp = angular.module('app', []);
 
 myApp.controller('MainCtrl', function ($scope){
-  $scope.todos = ["Learn Angular", "Learn node"];
+  $scope.todos = [
+    {name: "Learn Angular", editting: false}, 
+    {name: "Learn node", editting: false}];
   $scope.newItem = "";
   
   $scope.addItem = function(){
@@ -20,7 +22,9 @@ myApp.controller('MainCtrl', function ($scope){
     $scope.todos.splice(index, 1);
   }
     
-  
+  $scope.editItem = function(item) {
+    item.editting = !item.editting;
+  } 
 });
 
 /*************************
