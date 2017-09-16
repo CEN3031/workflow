@@ -3,7 +3,7 @@
 var myApp = angular.module('app', []);
 
 myApp.controller('MainCtrl', function ($scope){
-  $scope.todos = ["Learn Angular", "Learn node"];
+  $scope.todos = [{name: "Learn Angular", completed: false},{name: "Learn node", completed: false}];
   $scope.newItem = "";
   
   $scope.addItem = function(){
