@@ -4,8 +4,10 @@ var myApp = angular.module('app', []);
 
 myApp.controller('MainCtrl', function ($scope){
   $scope.todos = [
-    {name: "Learn Angular", editting: false}, 
-    {name: "Learn node", editting: false}];
+    {name: "Learn Angular", done: false, editting: false},
+    {name: "Learn node", done: false, editting: false}
+  ];
+
   $scope.newItem = "";
   
   $scope.addItem = function(){
@@ -20,6 +22,11 @@ myApp.controller('MainCtrl', function ($scope){
     console.log("in delete");
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
+  }
+
+  $scope.done = function(item){
+    console.log("completed");
+    item.done = !item.done;
   }
     
   $scope.editItem = function(item) {
