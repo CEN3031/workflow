@@ -4,8 +4,10 @@ var myApp = angular.module('app', []);
 
 myApp.controller('MainCtrl', function ($scope){
   $scope.todos = [
-    {name: "Learn Angular", done: false},
-    {name: "Learn node", done: false}];
+    {name: "Learn Angular", done: false, editting: false},
+    {name: "Learn node", done: false, editting: false}
+  ];
+
   $scope.newItem = "";
   
   $scope.addItem = function(){
@@ -27,7 +29,9 @@ myApp.controller('MainCtrl', function ($scope){
     item.done = !item.done;
   }
     
-  
+  $scope.editItem = function(item) {
+    item.editting = !item.editting;
+  } 
 });
 
 /*************************

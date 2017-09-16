@@ -34,11 +34,15 @@
             <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
           </button>
           
-          <span ng-hide="do.done">{{do.name}}</span>
+          <span ng-hide="do.editting || do.done">{{do.name}}</span>
+          <input ng-show="do.editting" type="text" ng-model="do.name"></input>
           <span ng-show="do.done"><strike>{{do.name}}</strike></span>
-
+    
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
+          </button>
+          <button class="btn btn-info pull-right" type="button" ng-click="editItem(do)">
+            <span class="glyphicon glyphicon-edit " aria-hidden="true"></span>
           </button>
 
         </li>
