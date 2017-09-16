@@ -26,11 +26,11 @@ myApp.controller('MainCtrl', function ($scope){
 
   $scope.done = function(item){
     console.log("completed");
-    item.done = !item.done;
+    if(!item.editting) item.done = !item.done;
   }
     
   $scope.editItem = function(item) {
-    item.editting = !item.editting;
+    if(!item.done) item.editting = !item.editting;
   } 
 });
 
