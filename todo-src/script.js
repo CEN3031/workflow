@@ -3,7 +3,9 @@
 var myApp = angular.module('app', []);
 
 myApp.controller('MainCtrl', function ($scope){
-  $scope.todos = [{name: "Learn Angular", completed: false},{name: "Learn node", completed: false}];
+  $scope.todos = [
+    {name: "Learn Angular", done: false},
+    {name: "Learn node", done: false}];
   $scope.newItem = "";
   
   $scope.addItem = function(){
@@ -20,31 +22,9 @@ myApp.controller('MainCtrl', function ($scope){
     $scope.todos.splice(index, 1);
   }
 
-  $scope.completeItem = function(item){
-    console.log("in complete");
-    item.strike();
-  }
-
-  $scope.markAsCompleted = function(item){
-    if(item.completed === true){
-        item.completed = false;
-      }
-      else{
-          item.completed = true;
-
-      }
-
-  }
-  $scope.clearCompleted = function(){
-    for(var i = 0; i < $scope.todos.length; i++){
-        if($scope.todos[i].completed === true){
-          $scope.todos.splice(i, 1);
-          i = -1;
-
-        }
-
-    }
-
+  $scope.done = function(item){
+    console.log("completed");
+    item.done = !item.done;
   }
     
   
