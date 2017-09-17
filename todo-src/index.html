@@ -7,7 +7,7 @@
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
-  </head>
+</head>
 
   <body ng-app="app">
     <h1 class="text-center">My little to do app!</h1>
@@ -37,6 +37,9 @@
           <span ng-hide="do.editting || do.done">{{do.name}}</span>
           <input ng-show="do.editting" type="text" ng-model="do.name"></input>
           <span ng-show="do.done"><strike>{{do.name}}</strike></span>
+
+<!-- This button calls changePriority (which adds 1 to its priority level) when clicked on -->
+          <div class="glyphicon glyphicon-plus pull-right" type="button" ng-click="changePriority(do)">|{{do.priority}}</div>
     
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
