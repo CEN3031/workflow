@@ -6,8 +6,7 @@ myApp.controller('MainCtrl', function ($scope){
   $scope.todos = [
     {name: "Learn Angular", done: false, editting: false, priority: 3},
     {name: "Learn node", done: false, editting: false, priority: 2},
-  //added this "test" to test
-  //added new field called priority
+    //added this "test" to test
     {name: "Test", done: false, editting: false, priority: 1}
   ];
 
@@ -39,15 +38,13 @@ myApp.controller('MainCtrl', function ($scope){
   $scope.editItem = function(item) {
     if(!item.done) item.editting = !item.editting;
   }
+  
 // changePriority function. simply adds 1 to the priority
 // unless it is at max priority level, then it goes back to 1
   $scope.changePriority = function(item) {
-    if(item.priority < 3)
-      item.priority = item.priority + 1;
-    else
-      item.priority = 1;
+    if(item.priority < 3) item.priority = item.priority + 1;
+    else item.priority = 1;
   }
-
 });
 
 /*************************

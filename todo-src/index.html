@@ -37,6 +37,7 @@
           <span ng-hide="do.editting || do.done">{{do.name}}</span>
           <input ng-show="do.editting" type="text" ng-model="do.name"></input>
           <span ng-show="do.done"><strike>{{do.name}}</strike></span>
+
 <!-- This button calls changePriority (which adds 1 to its priority level) when clicked on -->
           <div class="glyphicon glyphicon-plus pull-right" type="button" ng-click="changePriority(do)">|{{do.priority}}</div>
     
@@ -46,8 +47,6 @@
           <button class="btn btn-info pull-right" type="button" ng-click="editItem(do)">
             <span class="glyphicon glyphicon-edit " aria-hidden="true"></span>
           </button>
-
-
 
         </li>
       </ul>

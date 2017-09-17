@@ -127,6 +127,9 @@ You will be demonstrating your knowledge of GitHub workflow and Scrum fundamenta
 
 Have fun! :sunglasses: :+1:
 
-
-CRISTO BOIIII
-
+Joseph Cacioppo
+Zach was here!
+Ming
+Cristo BOIIII
+Lily
+Himal
