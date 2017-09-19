@@ -7,7 +7,7 @@
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
-  </head>
+</head>
 
   <body ng-app="app">
     <h1 class="text-center">My little to do app!</h1>
@@ -28,15 +28,35 @@
       
       <ul class="list-group">
         <!-- http://www.w3schools.com/css/css_float.asp -->
+
         <li class="list-group-item clearfix" ng-repeat="do in todos">
+          <button class="btn btn-primary" type="button" ng-click="done(do)">
+            <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
+          </button>
           
-          <span>{{do}}</span>
+          <span ng-hide="do.editting || do.done">{{do.name}}</span>
+          <input ng-show="do.editting" type="text" ng-model="do.name"></input>
+          <span ng-show="do.done"><strike>{{do.name}}</strike></span>
+
+<!-- This button calls changePriority (which adds 1 to its priority level) when clicked on -->
+          <div class="pull-right">
+            <button class="btn btn-primary glyphicon glyphicon-plus" ng-click="changePriority(do)"></button>
+            Priority: {{do.priority}}
+          </div>
+    
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>
-
+          <button class="btn btn-info pull-right" type="button" ng-click="editItem(do)">
+            <span class="glyphicon glyphicon-edit " aria-hidden="true"></span>
+          </button>
         </li>
-      </ul>
+</ul>
+        <div class="pull-right">
+        <br></br>
+          <br><input class="btn btn-md btn-danger" type="submit" value="Remove items" ng-click="removeCompletedItem()">
+        </div>
+      
     </div>
     
   </body>
