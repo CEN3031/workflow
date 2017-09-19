@@ -34,7 +34,8 @@ myApp.controller('MainCtrl', function ($scope){
     console.log("completed");
     if(!item.editting) item.done = !item.done;
   }
-    
+ 
+  //if item is not scrached out, you can edit it
   $scope.editItem = function(item) {
     if(!item.done) item.editting = !item.editting;
   }
@@ -45,6 +46,15 @@ myApp.controller('MainCtrl', function ($scope){
     if(item.priority < 3) item.priority = item.priority + 1;
     else item.priority = 1;
   }
+
+  $scope.removeCompletedItem = function(){
+    for (var i = $scope.todos.length - 1; i >= 0; i--) {
+      if ($scope.todos[i].done) {
+        $scope.todos.splice(i,1);
+      }
+    }
+  }
+
 });
 
 /*************************
