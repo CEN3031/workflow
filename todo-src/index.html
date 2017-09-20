@@ -34,7 +34,20 @@
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>
+		  
+		  <button class="btn btn-success pull-right" type="button" ng-click="completeItem(do)">
+            <span class="glyphicon glyphicon-ok " aria-hidden="true"></span>
+          </button>
 
+        </li>
+      </ul>
+	  
+	  <h2>completed stuff</h2>
+	  
+	  <ul class="list-group">
+        <!-- http://www.w3schools.com/css/css_float.asp -->
+        <li class="list-group-item clearfix" ng-repeat="do in completed">
+			<span>{{do}}</span>
         </li>
       </ul>
     </div>

@@ -5,6 +5,7 @@ var myApp = angular.module('app', []);
 myApp.controller('MainCtrl', function ($scope){
   $scope.todos = ["Learn Angular", "Learn node"];
   $scope.newItem = "";
+  $scope.completed = [];
   
   $scope.addItem = function(){
     console.log("in add");
@@ -18,6 +19,13 @@ myApp.controller('MainCtrl', function ($scope){
     console.log("in delete");
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
+  }
+  
+  $scope.completeItem = function(item){
+    console.log("in complete");
+    var index = $scope.todos.indexOf(item);
+    $scope.completed.push($scope.todos[index]);
+	$scope.todos.splice(index, 1);
   }
     
   
