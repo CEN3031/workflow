@@ -7,13 +7,20 @@
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
 
-  <body ng-app="app">
-    <h1 class="text-center">My little to do app!</h1>
-    
+
+  <body ng-app="app" style="background-color:#ffac75">
+
+    <h1 class="text-center">My little to do app!
+      <h1 class="text-center" id="numberOfItems"></h1>
+    </h1>
+
     <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl">
-  
+
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model="newItem">
           <span class="input-group-btn">
@@ -23,22 +30,38 @@
             </button>
           </span>
         </div><!-- /input-group -->
-        
+
       <h2>stuff i gotta do asap</h2>
-      
+
       <ul class="list-group">
         <!-- http://www.w3schools.com/css/css_float.asp -->
         <li class="list-group-item clearfix" ng-repeat="do in todos">
-          
-          <span>{{do}}</span>
+
+		  <input id="checkBox" type="checkbox" ng-model="do.value">
+          <span>{{do.task}}</span>
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>
 
+          <div id="Priority">
+        <form action="" method = "get">
+          <select id= "locale" name="locale">
+			         <option value="Now">Now</option>
+			         <option value="Tomorrow">Tomorrow</option>
+	             <option value="Someday">Someday</option>
+
+          </select>
+        </form>
+      </div>
         </li>
       </ul>
+
+      <button class="btn btn-danger" type="button" ng-click="deleteAllCompletedItems()">
+        Delete All Items
+      </button>
+
     </div>
-    
+
   </body>
 
 </html>
