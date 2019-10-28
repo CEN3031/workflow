@@ -7,8 +7,6 @@ This assignment will help in understanding how to use GitHub to collaborate with
 * [Remote repositories](#remote-repositories)
 * [Forking the repository](#forkingasdsadsadaddaborating-with-github)
 * [Assignment](#assignment)
-
-## TK ADDED THIS
   
 ## Common Git Commands
 
