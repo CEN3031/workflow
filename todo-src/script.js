@@ -7,7 +7,7 @@ myApp.controller('MainCtrl', function ($scope){
   $scope.newItem = "";
   
   $scope.addItem = function(){
-    console.log("in add");
+    console.log("in addition");// Maria
     if ($scope.newItem !== ""){
       $scope.todos.push($scope.newItem);
       $scope.newItem = "";
