@@ -7,7 +7,6 @@ This assignment will help in understanding how to use GitHub to collaborate with
 * [Remote repositories](#remote-repositories)
 * [Forking the repository](#forkingasdsadsadaddaborating-with-github)
 * [Assignment](#assignment)
-
   
 ## Common Git Commands
 
@@ -48,9 +47,9 @@ git remote add <remote_name> <remote_uri>
 Once you've made changes to your code and commited the results, you may want to add those changes to your repository on GitHub. We can **push** the local changes to a remote repository with the command 
 
 ```
-git push <remote_name> <branch_name>
-```adsadad
-s
+git push <remote_name> <branch_name> adsadads
+```
+
 Say your team members have made contributions to the codebase and have pushed those changes to GitHub. In order to get those changes on your local repository, you must **pull** changes from a remote repository using  
 
 ```
@@ -101,8 +100,8 @@ The **scrum master** ultimately merges the pull request into the master branch. 
 
 You will be demonstrating your knowledge of GitHub workflow and Scrum fundamentals in this assignment. You will be making simple changes to the sample to-do app that was shown in discussions and lecture. The Scrum Master will assign these tickets/tasks to the team. **All** members of the team must complete 1 ticket/task. There may be more tasks than you have group members, in that case it is **fine** to not do a task. Just make sure that every team member does one task.
 
-####Tasks/tickets
-######Accomplish these tasks in whatever way you see fit. No limitatons.
+#### Tasks/tickets
+###### Accomplish these tasks in whatever way you see fit. No limitatons.
 
 1. Change the background color of the to-do app
 2. Give the option to assign a priority to a to-do item  
@@ -116,7 +115,7 @@ You will be demonstrating your knowledge of GitHub workflow and Scrum fundamenta
 6. A button to clear all "completed" tasks   
 
 
-#####In order to complete these tasks, you will need to:
+##### In order to complete these tasks, you will need to:
 
 1. Create a GitHub organization for your team. Fork this repository to that organization. 
 2. You will not need to use Pivotal Tracker to track your tasks/user stories/tickets for this assignment.
