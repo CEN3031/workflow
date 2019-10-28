@@ -123,5 +123,3 @@ You will be demonstrating your knowledge of GitHub workflow and Scrum fundamenta
 3. Make sure to follow the workflow. Create a new branch for each task, and make pull requests to merge changes into your code base. 
 4. At the end, your forked version of this repo should have had 5/6 (or more) completed pull requests to merge branches for each feature update into the master branch.   
  - Your repo's master branch should have the updated code (in the todo-src directory) to reflect each task/ticket.
-
-Have fun! :sunglasses: :+1:
