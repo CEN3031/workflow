@@ -48,9 +48,9 @@ git remote add <remote_name> <remote_uri>
 Once you've made changes to your code and commited the results, you may want to add those changes to your repository on GitHub. We can **push** the local changes to a remote repository with the command 
 
 ```
-git push <remote_name> <branch_name>
-```adsadad
-s
+git push <remote_name> <branch_name> adsadads
+```
+
 Say your team members have made contributions to the codebase and have pushed those changes to GitHub. In order to get those changes on your local repository, you must **pull** changes from a remote repository using  
 
 ```
