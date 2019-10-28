@@ -3,11 +3,11 @@
 var myApp = angular.module('app', []);
 
 myApp.controller('MainCtrl', function ($scope){
-  $scope.todos = ["Learning Angular", "Learning node"];
+  $scope.todos = ["Learn Angular", "Learn node"];
   $scope.newItem = "";
   
   $scope.addItem = function(){
-    console.log("in add");
+    console.log("in addition");// Maria
     if ($scope.newItem !== ""){
       $scope.todos.push($scope.newItem);
       $scope.newItem = "";
