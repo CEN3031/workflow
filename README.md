@@ -1,4 +1,4 @@
-# workflow
+# workflow for Group 1
 This assignment will help in understanding how to use GitHub to collaborate with your team members. 
 
 * [Common Git Commands](#common-git-commands)
